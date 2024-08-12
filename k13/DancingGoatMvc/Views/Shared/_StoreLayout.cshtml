@@ -1,0 +1,29 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="container product-page-container">
+    <nav class="sub-menu row" data-ktc-search-exclude>
+        <div class="store-menu-list row">
+            <ul>
+                <li>
+                    @Html.HtmlLink(Url.Kentico().PageUrl(ContentItemIdentifiers.COFFEES), ResHelper.GetString("DancingGoatMvc.Coffees"))
+                </li>
+                <li>
+                    @Html.HtmlLink(Url.Kentico().PageUrl(ContentItemIdentifiers.BREWERS), ResHelper.GetString("DancingGoatMvc.Brewers"))
+                </li>
+                <li>
+                    @Html.HtmlLink(Url.Kentico().PageUrl(ContentItemIdentifiers.ACCESSORIES), ResHelper.GetString("DancingGoatMvc.Accessories"))
+                </li>
+                <li>
+                    @Html.HtmlLink(Url.Kentico().PageUrl(ContentItemIdentifiers.GRINDERS), ResHelper.GetString("DancingGoatMvc.Grinders"))
+                </li>
+            </ul>
+        </div>
+    </nav>
+    @RenderBody()
+</div>
+
+@section Scripts {
+    @RenderSection("scripts", required: false)
+}

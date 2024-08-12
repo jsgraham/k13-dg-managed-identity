@@ -1,0 +1,90 @@
+﻿@using DancingGoat.Models.InlineEditors
+@using DancingGoat.Models.Widgets
+@model DancingGoat.Models.Widgets.ArticlesWidgetViewModel
+
+@{
+    var i = 1;
+}
+
+@if (Context.Kentico().PageBuilder().EditMode)
+{
+    Html.RenderPartial("InlineEditors/_SpinnerEditor", new SpinnerEditorViewModel
+    {
+        PropertyName = nameof(ArticlesWidgetProperties.Count),
+        Count = Model.Count
+    });
+}
+
+<div class="articles-section">
+    <div class="row">
+        <h1 class="title-tab">@ResHelper.GetString("DancingGoatMvc.Widget.Articles.LatestOne")</h1>
+        @{ var first = true; }
+        @foreach (var article in Model.Articles)
+        {
+            if (first)
+            {
+                first = false;
+                <div class="article-tile article-tile-large">
+                    @if (article.TeaserUrl != null)
+                    {
+                        <div class="col-md-12 col-lg-6">
+                            <a href="@article.Url">
+                                <img src="@article.TeaserUrl.RelativePath" alt="@article.Title" title="@article.Title" class="article-tile-image" />
+                            </a>
+                        </div>
+                    }
+                    <div class="col-md-12 col-lg-6">
+                        <div class="article-tile-date">
+                            @article.PublicationDate.ToString("m")
+                        </div>
+                        <div class="article-tile-content">
+                            <h2>
+                                <a href="@article.Url">@article.Title</a>
+                            </h2>
+                            <p class="article-tile-text lead-paragraph">
+                                @article.Summary
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            }
+            else
+            {
+                <div class="col-md-3">
+                    <div class="article-tile">
+                        @if (article.TeaserUrl != null)
+                        {
+                            <a href="@article.Url">
+                                <img src="@article.TeaserUrl.WithSizeConstraint(SizeConstraint.Height(200)).RelativePath" alt="@article.Title" title="@article.Title" class="article-tile-image" />
+                            </a>
+                        }
+                        <div class="article-tile-date">
+                            @article.PublicationDate.ToString("m")
+                        </div>
+                        <div class="article-tile-content">
+                            <h2 class="h4">
+                                <a href="@article.Url">@article.Title </a>
+                            </h2>
+                            <p class="article-tile-text">
+                                @article.Summary
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                if (i % 4 == 0)
+                {
+                    <div class="clear"></div>
+                }
+                i++;
+            }
+        }
+    </div>
+
+    <div class="row">
+        <div class="clear center-text">
+            <a href="@Url.Kentico().PageUrl(ContentItemIdentifiers.ARTICLES)" class="btn btn-more">
+                @ResHelper.GetString("DancingGoatMvc.Widget.Articles.More")
+            </a>
+        </div>
+    </div>
+</div>

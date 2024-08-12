@@ -1,0 +1,60 @@
+﻿@using DancingGoat.Models.InlineEditors
+@using DancingGoat.Models.Widgets
+@model HeroImageWidgetViewModel
+
+@{
+    string styleAttribute = null;
+    if (!string.IsNullOrEmpty(Model.ImagePath))
+    {
+        styleAttribute = $"style=\"background-image: url('{Url.Content(Model.ImagePath)}');\"";
+    }
+}
+
+@if (Context.Kentico().PageBuilder().EditMode)
+{
+    Html.RenderPartial("InlineEditors/_ImageUploaderEditor", new ImageUploaderEditorViewModel
+    {
+        ImageType = ImageTypeEnum.MediaFile,
+        PropertyName = nameof(HeroImageWidgetProperties.Image),
+        HasImage = Model.ImagePath != null,
+        MessagePosition = PanelPositionEnum.Top,
+        UseAbsolutePosition = true
+    });
+}
+
+<section class="hero-image-section @Model.Theme" @Html.Raw(styleAttribute)>
+    <div class="content">
+        <div class="text">
+            @if (Context.Kentico().PageBuilder().EditMode)
+            {
+                Html.RenderPartial("InlineEditors/_TextEditor", new TextEditorViewModel
+                {
+                    PropertyName = nameof(HeroImageWidgetProperties.Text),
+                    Text = Model.Text,
+                });
+            }
+            else
+            {
+                @Model.Text
+            }
+        </div>
+        @if (Context.Kentico().PageBuilder().EditMode)
+        {
+            <div class="btn">
+                @{
+                    Html.RenderPartial("InlineEditors/_TextEditor", new TextEditorViewModel
+                    {
+                        PropertyName = nameof(HeroImageWidgetProperties.ButtonText),
+                        Text = Model.ButtonText,
+                    });
+                }
+            </div>
+        }
+        else
+        {
+            <a href="@Model.ButtonTarget" class="btn">
+                @Model.ButtonText
+            </a>
+        }
+    </div>
+</section>

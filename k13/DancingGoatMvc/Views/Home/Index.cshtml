@@ -1,0 +1,70 @@
+﻿@using DancingGoat.Controllers.Widgets
+
+@model DancingGoat.Models.Home.IndexViewModel
+
+@section styles
+{
+    @Html.Kentico().PageBuilderStyles()
+}
+
+@section scripts
+{
+    @Html.Kentico().PageBuilderScripts()
+}
+
+@helper MoreButton(string text, string url)
+{
+    if (!String.IsNullOrEmpty(url) && (!String.IsNullOrEmpty(text)))
+    {
+        <div class="row">
+            <div class="clear center-text">
+                <a href="@url" class="btn btn-more">
+                    @text
+                </a>
+            </div>
+        </div>
+    }
+}
+
+@Html.Kentico().EditableArea("area1", new EditableAreaOptions { AllowedWidgets = AreaRestrictionHelper.GetHomePageRestrictions() })
+
+@foreach (var homeSection in Model.HomeSections)
+{
+    <div class="row">
+        <h1 class="title-tab">@homeSection.Heading</h1>
+        <div class="col-sm-12">
+            <div class="ourstory-section center-text" style="background-image: url('@Url.Content(homeSection.BackgroundImagePath)');">
+                @Html.Raw(homeSection.Text)
+            </div>
+        </div>
+    </div>
+
+    @MoreButton(homeSection.MoreButtonText, homeSection.MoreButtonUrl)
+}
+
+@Html.Kentico().EditableArea(
+    "area2",
+    new EditableAreaOptions
+    {
+        DefaultSectionIdentifier = ComponentIdentifiers.TWO_COLUMN_SECTION,
+        AllowedSections = AllowedComponents.NONE,
+        AllowedWidgets = new[] { SystemComponentIdentifiers.RICH_TEXT_WIDGET_IDENTIFIER }
+    }
+)
+
+@if (Model.Reference != null)
+{
+    Html.RenderPartial("_Reference", Model.Reference);
+}
+
+<div class="row cafe-cards">
+    @Html.Kentico().EditableArea(
+        "area3",
+        new EditableAreaOptions
+        {
+            DefaultSectionIdentifier = ComponentIdentifiers.THREE_COLUMN_SECTION,
+            AllowedSections = new[] { ComponentIdentifiers.SINGLE_COLUMN_SECTION, ComponentIdentifiers.THREE_COLUMN_SECTION },
+            AllowedWidgets = new[] { CafeCardWidgetController.IDENTIFIER, ComponentIdentifiers.CTA_BUTTON_WIDGET }
+        }
+    )
+</div>

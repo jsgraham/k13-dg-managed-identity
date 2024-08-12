@@ -1,0 +1,36 @@
+﻿@model DancingGoat.Models.Checkout.CartViewModel
+
+@foreach (var cartItem in Model.CartItems)
+{
+    <div class="row">
+        <div class="col-md-10">
+            @if (!string.IsNullOrEmpty(cartItem.SKUImagePath))
+            {
+                <div class="cart-item-image">
+                    <a href="@Url.Action("ItemDetail", new { skuId = cartItem.SKUID })">
+                        <img src="@cartItem.SKUImagePath" alt="@cartItem.SKUName" title="@cartItem.SKUName" />
+                    </a>
+                </div>
+            }
+            <div class="cart-item-info">
+                @Html.ActionLink(cartItem.SKUName, "ItemDetail", new { skuId = cartItem.SKUID })
+            </div>
+            @using (Html.BeginForm("ShoppingCart", "Checkout", FormMethod.Post))
+            {
+                @Html.AntiForgeryToken()
+                <div class="cart-item-amount">
+                    <span>Qty</span>
+                    <input type="hidden" name="ID" value="@cartItem.CartItemID" />
+                    <input type="text" name="Units" value="@cartItem.CartItemUnits" class="form-control" />
+                    <input type="submit" name="UpdateItem" value="@ResHelper.GetString("DancingGoatMvc.ShoppingCart.Update")" class="btn btn-default" />
+                    <input type="submit" name="RemoveItem" value="@ResHelper.GetString("DancingGoatMvc.ShoppingCart.Remove")" class="btn btn-default" />
+                </div>
+            }
+            @Html.ValidationMessage(cartItem.CartItemID.ToString(), new { @class = "red"})
+        </div>
+        <div class="col-md-2 cart-item-subtotal">
+            <span>@Model.FormatPrice(cartItem.TotalPrice)</span>
+        </div>
+    </div>
+    <hr />
+}

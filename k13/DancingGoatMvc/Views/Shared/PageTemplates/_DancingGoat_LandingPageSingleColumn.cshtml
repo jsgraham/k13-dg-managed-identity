@@ -1,0 +1,30 @@
+﻿@using Kentico.Forms.Web.Mvc.Widgets
+@using DancingGoat.Models.PageTemplates
+
+@model Kentico.PageBuilder.Web.Mvc.ComponentViewModel<LandingPageSingleColumnProperties>
+
+    @{
+        Layout = "~/Views/Shared/_LandingPageLayout.cshtml";
+    }
+
+    <div>
+        <header class="header">
+            <div class="stripe @Model.Properties.HeaderColorCssClass"> </div>
+            @if (Model.Properties.ShowLogo)
+            {
+                <div class="header-row">
+                    <div class="container">
+                        <div class="col-xs-8 col-md-8 col-lg-4 logo">
+                            <h1 class="logo">Dancing Goat</h1>
+                        </div>
+                    </div>
+                </div>
+            }
+        </header>
+        <div class="container content-wrapper">
+            @Html.Kentico().EditableArea("top", new EditableAreaOptions { AllowedWidgets = AreaRestrictionHelper.GetLandingPageRestrictions() })
+        </div>
+        <div class="container content-wrapper bottom" id="bottom-area">
+            @Html.Kentico().EditableArea("bottom", new EditableAreaOptions { AllowedWidgets = new[] { SystemComponentIdentifiers.RICH_TEXT_WIDGET_IDENTIFIER, SystemComponentIdentifiers.FORM_WIDGET_IDENTIFIER } })
+        </div>
+    </div>

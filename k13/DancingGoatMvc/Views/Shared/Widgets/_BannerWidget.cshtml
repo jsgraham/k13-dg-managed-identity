@@ -1,0 +1,59 @@
+﻿@using DancingGoat.Models.InlineEditors
+@using DancingGoat.Models.Widgets
+
+@model DancingGoat.Models.Widgets.BannerWidgetViewModel
+
+@{
+    string styleAttribute = null;
+    if (!string.IsNullOrEmpty(Model.ImagePath))
+    {
+        styleAttribute = $"style=\"background-image: url('{Url.Content(Model.ImagePath)}');\"";
+    }
+
+    bool editMode = Context.Kentico().PageBuilder().EditMode;
+    bool displayLink = !editMode && !String.IsNullOrEmpty(Model.LinkUrl);
+}
+
+@helper RenderBanner(bool editMode, string styleAttribute)
+{
+    <section class="banner-section" @Html.Raw(styleAttribute)>
+        <h2 class="banner-heading">@ResHelper.GetString("DancingGoatMvc.Widget.Banner.Heading")</h2>
+        <div class="banner-text">
+            @if (editMode)
+            {
+                Html.RenderPartial("InlineEditors/_TextEditor", new TextEditorViewModel
+                {
+                    PropertyName = nameof(BannerWidgetProperties.Text),
+                    Text = Model.Text,
+                });
+            }
+            else
+            {
+                @Model.Text
+            }
+        </div>
+    </section>
+}
+
+@if (editMode)
+{
+    Html.RenderPartial("InlineEditors/_ImageUploaderEditor", new ImageUploaderEditorViewModel
+    {
+        ImageType = ImageTypeEnum.MediaFile,
+        PropertyName = nameof(BannerWidgetProperties.Image),
+        HasImage = Model.ImagePath != null,
+        MessagePosition = PanelPositionEnum.Top,
+        UseAbsolutePosition = true
+    });
+}
+
+@if (displayLink)
+{
+    <a title="@Model.LinkTitle" href="@Model.LinkUrl" class="banner-link">
+        @RenderBanner(editMode, styleAttribute)
+    </a>
+}
+else
+{
+    @RenderBanner(editMode, styleAttribute);
+}

@@ -1,0 +1,17 @@
+﻿@using DancingGoat.Models.InlineEditors
+@using DancingGoat.Models.Widgets
+@model DancingGoat.Models.Widgets.ImageWidgetViewModel
+
+@if (Context.Kentico().PageBuilder().EditMode)
+{
+    Html.RenderPartial("InlineEditors/_ImageUploaderEditor", new ImageUploaderEditorViewModel
+    {
+        PropertyName = nameof(ImageWidgetProperties.ImageGuid),
+        HasImage = !string.IsNullOrEmpty(Model.ImagePath),
+    });
+}
+
+@if (!string.IsNullOrEmpty(Model.ImagePath))
+{
+    <img src="@Model.ImagePath" class="img-responsive" />
+}

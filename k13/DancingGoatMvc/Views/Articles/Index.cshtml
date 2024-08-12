@@ -1,0 +1,33 @@
+﻿@model IEnumerable<DancingGoat.Models.Articles.ArticleViewModel>
+@{
+    var i = 1;
+}
+@foreach (var article in @Model)
+{
+    <div class="col-md-3">
+        <div class="article-tile">
+            @if (article.TeaserUrl != null)
+            {
+                <a href="@article.Url">
+                    <img src="@article.TeaserUrl.WithSizeConstraint(SizeConstraint.Height(200)).RelativePath" alt="@article.Title" title="@article.Title" class="article-tile-image" />
+                </a>
+            }
+            <div class="article-tile-date">
+                @article.PublicationDate.ToString("m")
+            </div>
+            <div class="article-tile-content">
+                <h2 class="h4">
+                    <a href="@article.Url">@article.Title </a>
+                </h2>
+                <p class="article-tile-text">
+                    @article.Summary
+                </p>
+            </div>
+        </div>
+    </div>
+    if (i % 4 == 0)
+    {
+        <div class="clear"></div>
+    }
+    i++;
+}

@@ -1,0 +1,12 @@
+﻿@model DancingGoat.Models.Navigation.MenuViewModel
+
+<nav>
+    <ul>
+        @foreach (var menuItem in Model.Items)
+        {
+            <li>
+                <a href="@menuItem.Url">@menuItem.Caption</a>
+            </li>
+        }
+    </ul>
+</nav>

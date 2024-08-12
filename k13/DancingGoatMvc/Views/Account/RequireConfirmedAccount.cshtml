@@ -1,0 +1,6 @@
+﻿@{
+    ViewBag.Title = ResHelper.GetString("DancingGoatMvc.RequireConfirmedAccount.Title");
+}
+
+<h2>@ResHelper.GetString("DancingGoatMvc.RequireConfirmedAccount")</h2>
+@Html.ActionLink(ResHelper.GetString("DancingGoatMvc.SignIn"), "Login", null, new { @class = "btn btn-secondary" })

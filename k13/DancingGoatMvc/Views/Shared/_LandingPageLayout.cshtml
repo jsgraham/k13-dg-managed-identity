@@ -1,0 +1,39 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+
+<html>
+<head id="head">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="UTF-8" />
+    @Html.Kentico().PageDescription()
+    @Html.Kentico().PageKeywords()
+    @Html.Kentico().PageTitle()
+    <link rel="icon" href="~/content/images/favicon.png" type="image/png" />
+    <link href="~/Content/Styles/Landing-page.css" rel="stylesheet" type="text/css" />
+    <link rel="canonical" href="@Url.Kentico().PageCanonicalUrl()" />
+    @Html.Kentico().PageBuilderStyles()
+    @Html.Kentico().ABTestLoggerScript()
+</head>
+<body>
+    <div class="page-wrap">
+        @Html.Action("Index", "Consent")
+        @RenderBody()
+    </div>
+    <div class="footer-wrapper">
+        <footer>
+            <div class="footer-container">
+                <div class="container">
+                    Copyright &copy; @DateTime.Now.Year Dancing Goat. All rights reserved.
+                </div>
+            </div>
+        </footer>
+    </div>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jquery-unobtrusive-ajax")
+    @Scripts.Render("~/bundles/jquery-validation")
+    @Html.Kentico().PageBuilderScripts()
+    @Html.Kentico().ActivityLoggingScript()
+</body>
+</html>

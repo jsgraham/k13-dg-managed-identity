@@ -1,0 +1,15 @@
+﻿@model DancingGoat.Models.Generator.ButtonViewModel
+
+@using (Html.BeginForm(Model.ActionName, "Generator"))
+{
+   @Html.AntiForgeryToken()
+    <div id="@($"Action{Model.ActionName}")" class="form-group">
+        <p class="loader hidden">
+            <span>Generating&hellip;</span>
+            <i class="icon-spinner spinner" aria-hidden="true"></i>
+        </p>
+        <input type="submit"
+               value="Generate"
+               class="btn @(Model.IsDisabled ? "btn-disabled" : "btn-primary")" @(Model.IsDisabled ? "disabled='disabled'" : "") />
+    </div>
+}

@@ -1,0 +1,12 @@
+{
+    "name": "DancingGoatConfiguration",
+    "version": "0.1.0",
+    "description": "Automates developer tasks using Grunt",
+    "main": "Kentico",
+    "private": true,
+    "devDependencies": {
+        "grunt": "1.0.2",
+        "grunt-contrib-less": "1.4.1",
+        "grunt-contrib-watch": "1.0.0"
+    }
+}

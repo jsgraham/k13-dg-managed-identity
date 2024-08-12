@@ -1,0 +1,9 @@
+﻿@model DancingGoat.Models.Grinders.ElectricGrinderViewModel
+
+<div class="product-detail-properties">
+    <h4>@ResHelper.GetString("DancingGoatMvc.Product.Parameters")</h4>
+    <dl class="row">
+        <dt class="col-xs-12 col-sm-4">@ResHelper.GetString("DancingGoatMvc.Grinders.Power")</dt>
+        <dd class="col-xs-12 col-sm-8">@string.Format("{0}W", Model.Power) </dd>
+    </dl>
+</div>

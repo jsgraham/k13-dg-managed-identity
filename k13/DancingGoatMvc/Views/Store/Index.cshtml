@@ -1,0 +1,26 @@
+﻿@using DancingGoat.Models.Store
+
+@model StoreViewModel
+
+@{
+    Layout = "~/Views/Shared/_StoreLayout.cshtml";
+}
+<h1>@ResHelper.GetString("DancingGoatMvc.Store.Bestsellers")</h1>
+<div class="product-page row">
+    <div class="product-list">
+        @Html.Partial("_StoreProductList", Model.FeaturedProducts)
+    </div>
+</div>
+
+<h1>@ResHelper.GetString("DancingGoatMvc.Store.HotTips")</h1>
+<div class="product-page row">
+    <div class="product-list">
+        @Html.Partial("_StoreProductList", Model.HotTipProducts)
+    </div>
+</div>
+
+<h1>@ResHelper.GetString("DancingGoatMvc.Store.Manufacturers")</h1>
+<div class="product-page row">
+    @{ Html.RenderPartial("_ManufacturerList", Model.Manufacturers);}
+
+</div>

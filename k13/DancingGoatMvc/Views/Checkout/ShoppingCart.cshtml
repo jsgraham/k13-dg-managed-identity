@@ -1,0 +1,64 @@
+﻿@model DancingGoat.Models.Checkout.CartViewModel
+
+@section Scripts{
+    <script type="text/javascript">$('#couponCode').load('@HttpUtility.JavaScriptStringEncode(Url.Action("Show", "Coupon"))')</script>
+}
+
+@{
+    ViewBag.Title = ResHelper.GetString("DancingGoatMvc.ShoppingCart");
+}
+
+<div class="checkout-container">
+    <div class="cart">
+        <div class="continue-shopping-link">
+            <a href="@Url.Kentico().PageUrl(ContentItemIdentifiers.COFFEES)">&larr; @ResHelper.GetString("DancingGoatMvc.Checkout.ContinueShopping")</a>
+        </div>
+
+        @if (!ViewData.ModelState.IsValid)
+        {
+            @Html.ValidationSummary(null, new { @class = "invalid-cart-content" })
+        }
+
+        <h2>@ResHelper.GetString("DancingGoatMvc.Checkout.YourShoppingCart")</h2>
+        <div class="col-md-8 cart-content">
+            <hr class="first-separator" />
+            @if (Model.IsEmpty)
+            {
+                <span>@ResHelper.GetString("DancingGoatMvc.Checkout.ShoppingCartIsEmpty")</span>
+                <hr class="last-separator" />
+            }
+            else
+            {
+                @Html.Partial("_ShoppingCartContentEdit", Model)
+            }
+
+            @if (Model.RemainingAmountForFreeShipping > 0)
+            {
+                <section class="free-shipping-promotion">
+                    <div>
+                        <span>
+                            @ResHelper.GetStringFormat("DancingGoatMvc.ShoppingCart.FreeDelivery", Model.FormatPrice(Model.RemainingAmountForFreeShipping))
+                        </span>
+                    </div>
+                </section>
+            }
+        </div>
+        <div class="col-md-4">
+            <div class="cart-right-panel floating-box">
+                <div id="couponCode"></div>
+                <hr>
+
+                @using (Html.BeginForm("ShoppingCart", "Checkout", FormMethod.Post))
+                {
+                    @Html.AntiForgeryToken()
+
+                    @Html.Partial("_ShoppingCartTotals", Model)
+
+                    <p>@ResHelper.GetString("DancingGoatMvc.Checkout.ReviewAndCheckout")</p>
+
+                    <input type="submit" name="ShoppingCartCheckout" value="@ResHelper.GetString("DancingGoatMvc.Checkout")" class="btn-primary checkout-button btn btn-default" />
+                }
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,20 @@
+﻿@model DancingGoat.Models.Consent.ConsentViewModel
+
+<div id="consent" class="cookie-consent" data-ktc-search-exclude>
+    @if (!Model.IsConsentAgreed)
+    {
+        <div class="consent-text">@Model.ConsentNotAgreedText</div>
+        <div>@Model.ConsentShortText</div>
+        using (Ajax.BeginForm("Agree", "Consent", new AjaxOptions { HttpMethod = "Post", OnComplete = "new function(){window.location.reload()}" }, new { @class = "consent-buttons" }))
+        {
+            @Html.Kentico().AntiForgeryToken()
+            <input type="submit" value="@Model.AgreeButtonText" class="btn btn-default btn-consent">
+        }
+    }
+    else
+    {
+        <div>
+            @Model.ConsentAgreedText @Html.HtmlLink(Url.Kentico().PageUrl(ContentItemIdentifiers.PRIVACY), Model.PrivacyPageLinkText).
+        </div>
+    }
+</div>

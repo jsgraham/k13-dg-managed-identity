@@ -1,0 +1,55 @@
+﻿@model DancingGoat.Models.Privacy.PrivacyViewModel
+
+<div class="container">
+    @if (Model.DemoDisabled)
+    {
+        <text>
+            <h2>@ResHelper.GetString("DancingGoatMvc.Privacy.DemoDisabledTitle")</h2>
+            <span>
+                @ResHelper.GetString("DancingGoatMvc.Privacy.DemoDisabledText")
+                @Html.HtmlLink(Url.Kentico().PageUrl(ContentItemIdentifiers.GENERATOR), @ResHelper.GetString("DancingGoatMvc.Privacy.DemoDisabledLink")).
+            </span>
+        </text>
+    }
+    else
+    {
+        <h2>@ResHelper.GetString("DancingGoatMvc.Privacy.AgreedConsents")</h2>
+
+        if (Model.ShowSavedMessage)
+        {
+            <span class="info-label">@ResHelper.GetString("DancingGoatMvc.Privacy.SavedMessage")</span>
+        }
+        else if (Model.ShowErrorMessage)
+        {
+            <span class="error-label">@ResHelper.GetString("DancingGoatMvc.Privacy.ErrorMessage")</span>
+        }
+
+        if (Model.Constents.Any())
+        {
+            using (Html.BeginForm("Revoke", "Privacy", FormMethod.Post))
+            {
+                @Html.AntiForgeryToken()
+                foreach (var consent in Model.Constents)
+                {
+                    <div class="consent-item">
+                        <div class="row">
+                            <div class="col-md-10">
+                                <h3 class="consent-heading">@consent.Title</h3>
+                            </div>
+                            <div class="col-md-2">
+                                <button type="submit" name="consentName" value="@consent.Name" class="btn btn-primary">@ResHelper.GetString("DancingGoatMvc.Privacy.RevokeAction")</button>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <p>@consent.Text</p>
+                        </div>
+                    </div>
+                }
+            }
+        }
+        else
+        {
+            <span>@ResHelper.GetString("DancingGoatMvc.Privacy.NoConsents")</span>
+        }
+    }
+</div>

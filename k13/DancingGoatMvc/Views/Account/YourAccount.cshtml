@@ -1,0 +1,66 @@
+﻿@using Kentico.Membership.Web.Mvc
+
+@model DancingGoat.Models.Account.YourAccountViewModel
+
+@{
+    ViewBag.Title = ResHelper.GetString("DancingGoatMvc.YourAccount");
+}
+
+<div class="container">
+    <h2>@ResHelper.GetString("DancingGoatMvc.YourAccount")</h2>
+    <div class="row">
+        <div class="col-md-4">
+            <h3>@ResHelper.GetString("DancingGoatMvc.YourAccount.PersonalDetails")</h3>
+            <div>@Model.User.FirstName @Model.User.LastName</div>
+            <div>@Model.User.Email</div>
+            <div>
+                <a href="@Url.Action("Edit", "Account" )">@ResHelper.GetString("DancingGoatMvc.Edit")</a>
+            </div>
+        </div>
+        @if (Model.User.Roles.Any())
+        {
+            <div class="col-md-4">
+                <h3>@ResHelper.GetString("DancingGoatMvc.YourAccount.Roles")</h3>
+                <ul>
+                    @foreach (var role in Model.User.Roles)
+                    {
+                        <li>@role</li>
+                    }
+                </ul>
+            </div>
+        }
+    <div class="col-md-4">
+        <div class="avatar" onclick="document.getElementById('avatarUpload').click()">
+            <img class="avatar-image" src="@Url.Kentico().AvatarUrl(Model.User.UserName, pathToDefaultAvatar: " ~/Content/Images/default-avatar.png")" />
+            <div class="avatar-upload-info">
+                <div class="text">@ResHelper.GetString("DancingGoatMvc.YourAccount.ChangePhoto")</div>
+            </div>
+        </div>
+        @if (Model.AvatarUpdateFailed)
+        {
+            <div class="avatar-error">
+                <span class="avatar-error-message">@ResHelper.GetString("DancingGoatMvc.YourAccount.InvalidAvatar")</span>
+            </div>
+            <script type="text/javascript">
+                if (window.history.replaceState) {
+                    window.history.replaceState({}, document.title, window.location.pathname);
+                }
+            </script>
+        }
+
+        @using (@Html.BeginForm("ChangeAvatar", "Account", FormMethod.Post, new { enctype = "multipart/form-data", id = "avatarUploadForm", style = "display:none;" }))
+        {
+            @Html.Kentico().AntiForgeryToken()
+            @Html.TextBox("avatarUpload", "", new { type = "file", id = "avatarUpload", accept = "image/*", onchange = "document.getElementById('avatarUploadForm').submit()" })
+        }
+    </div>
+    </div>
+
+    <div class="row">
+        <div class="clear">
+            <a href="@Url.Action("Index", "Orders")" class="btn btn-more">
+                @ResHelper.GetString("DancingGoatMvc.YourOrders.Orders")
+            </a>
+        </div>
+    </div>
+</div>

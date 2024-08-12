@@ -1,0 +1,50 @@
+﻿@model DancingGoat.Models.Checkout.CartViewModel
+
+<script type="text/javascript">
+    var getResult = function (data) {
+        if (data.CouponCodeInvalidMessage) {
+            $("#coupon-message-error").text(data.CouponCodeInvalidMessage);
+        } else {
+            window.location.href = window.location.href;
+        }
+    };
+</script>
+
+<div class="cart-coupon-input">
+    <label>@ResHelper.GetString("DancingGoatMvc.Checkout.CouponCode")</label>
+    @using (Ajax.BeginForm("AddCouponCode", "Coupon", null, new AjaxOptions
+    {
+        HttpMethod = "POST",
+        OnSuccess = "getResult",
+    }))
+    {
+        @Html.AntiForgeryToken()
+        <div>
+            <input type="text" name="NewCouponCode" value="" class="form-control" />
+            <input type="submit" name="NewCouponCodeButton" value="@ResHelper.GetString("DancingGoatMvc.Apply")" class="btn btn-primary" />
+        </div>
+        <div class="message message-error" id="coupon-message-error">
+        </div>
+    }
+    @foreach (var couponCode in Model.AppliedCouponCodes)
+    {
+        <div class="cart-coupon-code">
+            @using (Ajax.BeginForm("RemoveCouponCode", "Coupon", null, new AjaxOptions
+            {
+                HttpMethod = "POST",
+                OnSuccess = "getResult",
+            }))
+            {
+                @Html.AntiForgeryToken()
+
+                <input type="hidden" name="RemoveCouponCode" value="@couponCode" />
+                <div class="label">
+                    <span>@couponCode</span>
+                </div>
+                <div class="button">
+                    <input type="submit" name="RemoveCouponCodeButton" value="@ResHelper.GetString("DancingGoatMvc.ShoppingCart.Remove")" class="btn btn-default" />
+                </div>
+            }
+        </div>
+    }
+</div>

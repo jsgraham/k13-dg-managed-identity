@@ -1,0 +1,9 @@
+﻿@{
+    Layout = "~/Views/Shared/_StoreLayout.cshtml";
+}
+
+<h2>@ResHelper.GetString("DancingGoatMvc.Manufacturers.Heading");</h2>
+
+<div>
+    @{Html.RenderPartial("_ManufacturerList");}
+</div>

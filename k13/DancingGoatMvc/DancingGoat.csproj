@@ -1,0 +1,1500 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{812074DB-E3B1-48B5-89CD-C9BC50B809C1}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DancingGoat</RootNamespace>
+    <AssemblyName>DancingGoat</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <IncludeFrameworkReferencesFromNuGet>false</IncludeFrameworkReferencesFromNuGet>
+    <TargetFrameworkProfile />
+    <Use64BitIISExpress />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <LangVersion>default</LangVersion>
+    <DocumentationFile>
+    </DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AngleSharp, Version=0.17.1.0, Culture=neutral, PublicKeyToken=e83494dcdc6d31ea">
+      <HintPath>..\packages\AngleSharp.0.17.1\lib\net472\AngleSharp.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="AngleSharp.Css, Version=0.17.0.0, Culture=neutral, PublicKeyToken=e83494dcdc6d31ea">
+      <HintPath>..\packages\AngleSharp.Css.0.17.0\lib\net472\AngleSharp.Css.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Antlr3.Runtime, Version=3.5.0.2, Culture=neutral, PublicKeyToken=eb42632606e9261f">
+      <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Autofac, Version=3.5.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da">
+      <HintPath>..\packages\Autofac.3.5.2\lib\net40\Autofac.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Autofac.Extras.DynamicProxy2, Version=3.0.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da">
+      <HintPath>..\packages\Autofac.Extras.DynamicProxy2.3.0.7\lib\net40\Autofac.Extras.DynamicProxy2.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Autofac.Integration.Mvc, Version=3.3.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da">
+      <HintPath>..\packages\Autofac.Mvc5.3.3.4\lib\net45\Autofac.Integration.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="AWSSDK.Core, Version=3.3.0.0, Culture=neutral, PublicKeyToken=885c28607f98e604">
+      <HintPath>..\packages\AWSSDK.Core.3.5.1.13\lib\net45\AWSSDK.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="AWSSDK.S3, Version=3.3.0.0, Culture=neutral, PublicKeyToken=885c28607f98e604">
+      <HintPath>..\packages\AWSSDK.S3.3.5.1.4\lib\net45\AWSSDK.S3.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="BouncyCastle.Crypto, Version=1.9.0.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
+      <HintPath>..\packages\Portable.BouncyCastle.1.9.0\lib\net40\BouncyCastle.Crypto.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Castle.Core, Version=4.0.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc">
+      <HintPath>..\packages\Castle.Core.4.4.0\lib\net45\Castle.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="CMS.Activities, Version=13.0.13.0, Culture=neutral, PublicKeyToken=834b12a258f213f9">
+      <HintPath>..\packages\Kentico.Xperience.Libraries.13.0.142\lib\net48\CMS.Activities.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="CMS.Activities.Loggers, Version=13.0.13.0, Culture=neutral, PublicKeyToken=834b12a258f213f9">
+      <HintPath>..\packages\Kentico.Xperience.Libraries.13.0.142\lib\net48\CMS.Activities.Loggers.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="CMS.AmazonStorage, Version=13.0.13.0, Culture=neutral, PublicKeyToken=834b12a258f213f9">
+      <HintPath>..\packages\Kentico.Xperience.Libraries.13.0.142\lib\net48\CMS.AmazonStorage.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="CMS.AspNet.Platform, Version=13.0.13.0, Culture=neutral, PublicKeyToken=834b12a258f213f9">
+      <HintPath>..\packages\Kentico.Xperience.Libraries.13.0.142\lib\net48\CMS.AspNet.Platform.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="CMS.Automation, Version=13.0.13.0, Culture=neutral, PublicKeyToken=834b12a258f213f9">
+      <HintPath>..\packages\Kentico.Xperience.Libraries.13.0.142\lib\net48\CMS.Automation.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="CMS.AzureStorage, Version=13.0.13.0, Culture=neutral, PublicKeyToken=834b12a258f213f9">
+      <HintPath>..\packages\Kentico.Xperience.Libraries.13.0.142\lib\net48\CMS.AzureStorage.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="CMS.Base, Version=13.0.13.0, Culture=neutral, PublicKeyToken=834b12a258f213f9">
+      <HintPath>..\packages\Kentico.Xperience.Libraries.13.0.142\lib\net48\CMS.Base.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="CMS.ComputerVision.Azure, Version=13.0.13.0, Culture=neutral, PublicKeyToken=834b12a258f213f9">
+      <HintPath>..\packages\Kentico.Xperience.Libraries.13.0.142\lib\net48\CMS.ComputerVision.Azure.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="CMS.ContactManagement, Version=13.0.13.0, Culture=neutral, PublicKeyToken=834b12a258f213f9">
+      <HintPath>..\packages\Kentico.Xperience.Libraries.13.0.142\lib\net48\CMS.ContactManagement.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="CMS.ContinuousIntegration, Version=13.0.13.0, Culture=neutral, PublicKeyToken=834b12a258f213f9">
+      <HintPath>..\packages\Kentico.Xperience.Libraries.13.0.142\lib\net48\CMS.ContinuousIntegration.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="CMS.Core, Version=13.0.13.0, Culture=neutral, PublicKeyToken=834b12a258f213f9">
+      <HintPath>..\packages\Kentico.Xperience.Libraries.13.0.142\lib\net48\CMS.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="CMS.CustomTables, Version=13.0.13.0, Culture=neutral, PublicKeyToken=834b12a258f213f9">
+      <HintPath>..\packages\Kentico.Xperience.Libraries.13.0.142\lib\net48\CMS.CustomTables.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="CMS.DataEngine, Version=13.0.13.0, Culture=neutral, PublicKeyToken=834b12a258f213f9">
+      <HintPath>..\packages\Kentico.Xperience.Libraries.13.0.142\lib\net48\CMS.DataEngine.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="CMS.DataProtection, Version=13.0.13.0, Culture=neutral, PublicKeyToken=834b12a258f213f9">
+      <HintPath>..\packages\Kentico.Xperience.Libraries.13.0.142\lib\net48\CMS.DataProtection.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="CMS.DocumentEngine, Version=13.0.13.0, Culture=neutral, PublicKeyToken=834b12a258f213f9">
+      <HintPath>..\packages\Kentico.Xperience.Libraries.13.0.142\lib\net48\CMS.DocumentEngine.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="CMS.Ecommerce, Version=13.0.13.0, Culture=neutral, PublicKeyToken=834b12a258f213f9">
+      <HintPath>..\packages\Kentico.Xperience.Libraries.13.0.142\lib\net48\CMS.Ecommerce.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="CMS.EmailEngine, Version=13.0.13.0, Culture=neutral, PublicKeyToken=834b12a258f213f9">
+      <HintPath>..\packages\Kentico.Xperience.Libraries.13.0.142\lib\net48\CMS.EmailEngine.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="CMS.EventLog, Version=13.0.13.0, Culture=neutral, PublicKeyToken=834b12a258f213f9">
+      <HintPath>..\packages\Kentico.Xperience.Libraries.13.0.142\lib\net48\CMS.EventLog.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="CMS.FormEngine, Version=13.0.13.0, Culture=neutral, PublicKeyToken=834b12a258f213f9">
+      <HintPath>..\packages\Kentico.Xperience.Libraries.13.0.142\lib\net48\CMS.FormEngine.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="CMS.Globalization, Version=13.0.13.0, Culture=neutral, PublicKeyToken=834b12a258f213f9">
+      <HintPath>..\packages\Kentico.Xperience.Libraries.13.0.142\lib\net48\CMS.Globalization.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="CMS.Helpers, Version=13.0.13.0, Culture=neutral, PublicKeyToken=834b12a258f213f9">
+      <HintPath>..\packages\Kentico.Xperience.Libraries.13.0.142\lib\net48\CMS.Helpers.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="CMS.ImportExport, Version=13.0.13.0, Culture=neutral, PublicKeyToken=834b12a258f213f9">
+      <HintPath>..\packages\Kentico.Xperience.Libraries.13.0.142\lib\net48\CMS.ImportExport.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="CMS.IO, Version=13.0.13.0, Culture=neutral, PublicKeyToken=834b12a258f213f9">
+      <HintPath>..\packages\Kentico.Xperience.Libraries.13.0.142\lib\net48\CMS.IO.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="CMS.LicenseProvider, Version=13.0.13.0, Culture=neutral, PublicKeyToken=834b12a258f213f9">
+      <HintPath>..\packages\Kentico.Xperience.Libraries.13.0.142\lib\net48\CMS.LicenseProvider.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="CMS.MacroEngine, Version=13.0.13.0, Culture=neutral, PublicKeyToken=834b12a258f213f9">
+      <HintPath>..\packages\Kentico.Xperience.Libraries.13.0.142\lib\net48\CMS.MacroEngine.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="CMS.MediaLibrary, Version=13.0.13.0, Culture=neutral, PublicKeyToken=834b12a258f213f9">
+      <HintPath>..\packages\Kentico.Xperience.Libraries.13.0.142\lib\net48\CMS.MediaLibrary.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="CMS.Membership, Version=13.0.13.0, Culture=neutral, PublicKeyToken=834b12a258f213f9">
+      <HintPath>..\packages\Kentico.Xperience.Libraries.13.0.142\lib\net48\CMS.Membership.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="CMS.MembershipProvider, Version=13.0.13.0, Culture=neutral, PublicKeyToken=834b12a258f213f9">
+      <HintPath>..\packages\Kentico.Xperience.Libraries.13.0.142\lib\net48\CMS.MembershipProvider.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="CMS.Modules, Version=13.0.13.0, Culture=neutral, PublicKeyToken=834b12a258f213f9">
+      <HintPath>..\packages\Kentico.Xperience.Libraries.13.0.142\lib\net48\CMS.Modules.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="CMS.Newsletters, Version=13.0.13.0, Culture=neutral, PublicKeyToken=834b12a258f213f9">
+      <HintPath>..\packages\Kentico.Xperience.Libraries.13.0.142\lib\net48\CMS.Newsletters.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="CMS.OnlineForms, Version=13.0.13.0, Culture=neutral, PublicKeyToken=834b12a258f213f9">
+      <HintPath>..\packages\Kentico.Xperience.Libraries.13.0.142\lib\net48\CMS.OnlineForms.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="CMS.OnlineMarketing, Version=13.0.13.0, Culture=neutral, PublicKeyToken=834b12a258f213f9">
+      <HintPath>..\packages\Kentico.Xperience.Libraries.13.0.142\lib\net48\CMS.OnlineMarketing.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="CMS.Personas, Version=13.0.13.0, Culture=neutral, PublicKeyToken=834b12a258f213f9">
+      <HintPath>..\packages\Kentico.Xperience.Libraries.13.0.142\lib\net48\CMS.Personas.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="CMS.Relationships, Version=13.0.13.0, Culture=neutral, PublicKeyToken=834b12a258f213f9">
+      <HintPath>..\packages\Kentico.Xperience.Libraries.13.0.142\lib\net48\CMS.Relationships.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="CMS.Reporting, Version=13.0.13.0, Culture=neutral, PublicKeyToken=834b12a258f213f9">
+      <HintPath>..\packages\Kentico.Xperience.Libraries.13.0.142\lib\net48\CMS.Reporting.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="CMS.ResponsiveImages, Version=13.0.13.0, Culture=neutral, PublicKeyToken=834b12a258f213f9">
+      <HintPath>..\packages\Kentico.Xperience.Libraries.13.0.142\lib\net48\CMS.ResponsiveImages.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="CMS.Routing.Web, Version=13.0.13.0, Culture=neutral, PublicKeyToken=834b12a258f213f9">
+      <HintPath>..\packages\Kentico.Xperience.Libraries.13.0.142\lib\net48\CMS.Routing.Web.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="CMS.SalesForce, Version=13.0.13.0, Culture=neutral, PublicKeyToken=834b12a258f213f9">
+      <HintPath>..\packages\Kentico.Xperience.Libraries.13.0.142\lib\net48\CMS.SalesForce.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="CMS.Scheduler, Version=13.0.13.0, Culture=neutral, PublicKeyToken=834b12a258f213f9">
+      <HintPath>..\packages\Kentico.Xperience.Libraries.13.0.142\lib\net48\CMS.Scheduler.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="CMS.Search, Version=13.0.13.0, Culture=neutral, PublicKeyToken=834b12a258f213f9">
+      <HintPath>..\packages\Kentico.Xperience.Libraries.13.0.142\lib\net48\CMS.Search.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="CMS.Search.Azure, Version=13.0.13.0, Culture=neutral, PublicKeyToken=834b12a258f213f9">
+      <HintPath>..\packages\Kentico.Xperience.Libraries.13.0.142\lib\net48\CMS.Search.Azure.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="CMS.Search.Lucene3, Version=13.0.13.0, Culture=neutral, PublicKeyToken=834b12a258f213f9">
+      <HintPath>..\packages\Kentico.Xperience.Libraries.13.0.142\lib\net48\CMS.Search.Lucene3.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="CMS.Search.TextExtractors, Version=13.0.13.0, Culture=neutral, PublicKeyToken=834b12a258f213f9">
+      <HintPath>..\packages\Kentico.Xperience.Libraries.13.0.142\lib\net48\CMS.Search.TextExtractors.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="CMS.SharePoint, Version=13.0.13.0, Culture=neutral, PublicKeyToken=834b12a258f213f9">
+      <HintPath>..\packages\Kentico.Xperience.Libraries.13.0.142\lib\net48\CMS.SharePoint.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="CMS.SiteProvider, Version=13.0.13.0, Culture=neutral, PublicKeyToken=834b12a258f213f9">
+      <HintPath>..\packages\Kentico.Xperience.Libraries.13.0.142\lib\net48\CMS.SiteProvider.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="CMS.SocialMarketing, Version=13.0.13.0, Culture=neutral, PublicKeyToken=834b12a258f213f9">
+      <HintPath>..\packages\Kentico.Xperience.Libraries.13.0.142\lib\net48\CMS.SocialMarketing.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="CMS.Synchronization, Version=13.0.13.0, Culture=neutral, PublicKeyToken=834b12a258f213f9">
+      <HintPath>..\packages\Kentico.Xperience.Libraries.13.0.142\lib\net48\CMS.Synchronization.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="CMS.SynchronizationEngine, Version=13.0.13.0, Culture=neutral, PublicKeyToken=834b12a258f213f9">
+      <HintPath>..\packages\Kentico.Xperience.Libraries.13.0.142\lib\net48\CMS.SynchronizationEngine.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="CMS.Taxonomy, Version=13.0.13.0, Culture=neutral, PublicKeyToken=834b12a258f213f9">
+      <HintPath>..\packages\Kentico.Xperience.Libraries.13.0.142\lib\net48\CMS.Taxonomy.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="CMS.TextAnalytics.Azure, Version=13.0.13.0, Culture=neutral, PublicKeyToken=834b12a258f213f9">
+      <HintPath>..\packages\Kentico.Xperience.Libraries.13.0.142\lib\net48\CMS.TextAnalytics.Azure.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="CMS.TranslationServices, Version=13.0.13.0, Culture=neutral, PublicKeyToken=834b12a258f213f9">
+      <HintPath>..\packages\Kentico.Xperience.Libraries.13.0.142\lib\net48\CMS.TranslationServices.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="CMS.WebAnalytics, Version=13.0.13.0, Culture=neutral, PublicKeyToken=834b12a258f213f9">
+      <HintPath>..\packages\Kentico.Xperience.Libraries.13.0.142\lib\net48\CMS.WebAnalytics.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="CMS.WebFarmSync, Version=13.0.13.0, Culture=neutral, PublicKeyToken=834b12a258f213f9">
+      <HintPath>..\packages\Kentico.Xperience.Libraries.13.0.142\lib\net48\CMS.WebFarmSync.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="CMS.WorkflowEngine, Version=13.0.13.0, Culture=neutral, PublicKeyToken=834b12a258f213f9">
+      <HintPath>..\packages\Kentico.Xperience.Libraries.13.0.142\lib\net48\CMS.WorkflowEngine.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DocumentFormat.OpenXml, Version=2.19.0.0, Culture=neutral, PublicKeyToken=8fb06cb64d019a17">
+      <HintPath>..\packages\DocumentFormat.OpenXml.2.19.0\lib\net46\DocumentFormat.OpenXml.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Facebook, Version=6.0.10.0, Culture=neutral, PublicKeyToken=58cb4f2111d1e6de">
+      <HintPath>..\packages\Facebook.6.4.2\lib\net45\Facebook.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="HtmlSanitizer, Version=8.0.0.0, Culture=neutral, PublicKeyToken=61c49a1a9e79cc28">
+      <HintPath>..\packages\HtmlSanitizer.8.0.723\lib\net461\HtmlSanitizer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Kentico.Content.Web.Mvc, Version=13.0.13.0, Culture=neutral, PublicKeyToken=834b12a258f213f9">
+      <HintPath>..\packages\Kentico.Xperience.AspNet.Mvc5.Libraries.13.0.142\lib\net48\Kentico.Content.Web.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Kentico.Content.Web.Mvc.Views, Version=13.0.13.0, Culture=neutral, PublicKeyToken=834b12a258f213f9">
+      <HintPath>..\packages\Kentico.Xperience.AspNet.Mvc5.13.0.142\lib\net48\Kentico.Content.Web.Mvc.Views.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Kentico.Membership, Version=13.0.13.0, Culture=neutral, PublicKeyToken=834b12a258f213f9">
+      <HintPath>..\packages\Kentico.Xperience.AspNet.Mvc5.Libraries.13.0.142\lib\net48\Kentico.Membership.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Kentico.OnlineMarketing.Web.Mvc, Version=13.0.13.0, Culture=neutral, PublicKeyToken=834b12a258f213f9">
+      <HintPath>..\packages\Kentico.Xperience.AspNet.Mvc5.Libraries.13.0.142\lib\net48\Kentico.OnlineMarketing.Web.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Kentico.Web.Mvc, Version=13.0.13.0, Culture=neutral, PublicKeyToken=834b12a258f213f9">
+      <HintPath>..\packages\Kentico.Xperience.AspNet.Mvc5.Libraries.13.0.142\lib\net48\Kentico.Web.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Kentico.Web.Mvc.Proxies, Version=13.0.13.0, Culture=neutral, PublicKeyToken=834b12a258f213f9">
+      <HintPath>..\packages\Kentico.Xperience.AspNet.Mvc5.Libraries.13.0.142\lib\net48\Kentico.Web.Mvc.Proxies.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="LinqToTwitter.net, Version=4.0.0.0, Culture=neutral, PublicKeyToken=957107be965c25d9">
+      <HintPath>..\packages\linqtotwitter.4.0.0\lib\net45\LinqToTwitter.net.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Lucene.Net.v3, Version=3.0.3.0, Culture=neutral, PublicKeyToken=834b12a258f213f9">
+      <HintPath>..\packages\Kentico.Xperience.Libraries.13.0.142\lib\net48\Lucene.Net.v3.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Lucene.Net.WordNet.SynExpand, Version=2.0.0.1, Culture=neutral, PublicKeyToken=834b12a258f213f9">
+      <HintPath>..\packages\Kentico.Xperience.Libraries.13.0.142\lib\net48\Lucene.Net.WordNet.SynExpand.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MailKit, Version=3.3.0.0, Culture=neutral, PublicKeyToken=4e064fe7c44a8f1b">
+      <HintPath>..\packages\MailKit.3.3.0\lib\net48\MailKit.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MaxMind.Db, Version=2.0.0.0, Culture=neutral, PublicKeyToken=66afa4cc5ae853ac">
+      <HintPath>..\packages\MaxMind.Db.2.6.1\lib\net45\MaxMind.Db.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MaxMind.GeoIP2, Version=3.0.0.0, Culture=neutral, PublicKeyToken=66afa4cc5ae853ac">
+      <HintPath>..\packages\MaxMind.GeoIP2.3.2.0\lib\net45\MaxMind.GeoIP2.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.4\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.2.4\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Cryptography.Internal, Version=3.1.8.0, Culture=neutral, PublicKeyToken=adb9793829ddae60">
+      <HintPath>..\packages\Microsoft.AspNetCore.Cryptography.Internal.3.1.8\lib\netstandard2.0\Microsoft.AspNetCore.Cryptography.Internal.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Cryptography.KeyDerivation, Version=3.1.8.0, Culture=neutral, PublicKeyToken=adb9793829ddae60">
+      <HintPath>..\packages\Microsoft.AspNetCore.Cryptography.KeyDerivation.3.1.8\lib\netstandard2.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Azure.CognitiveServices.Vision.ComputerVision, Version=7.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <HintPath>..\packages\Microsoft.Azure.CognitiveServices.Vision.ComputerVision.7.0.0\lib\net461\Microsoft.Azure.CognitiveServices.Vision.ComputerVision.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Azure.KeyVault.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <HintPath>..\packages\Microsoft.Azure.KeyVault.Core.1.0.0\lib\net40\Microsoft.Azure.KeyVault.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Azure.Search, Version=10.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <HintPath>..\packages\Microsoft.Azure.Search.10.1.0\lib\net461\Microsoft.Azure.Search.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Azure.Search.Common, Version=10.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <HintPath>..\packages\Microsoft.Azure.Search.Common.10.1.0\lib\net461\Microsoft.Azure.Search.Common.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Azure.Search.Data, Version=10.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <HintPath>..\packages\Microsoft.Azure.Search.Data.10.1.0\lib\net461\Microsoft.Azure.Search.Data.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Azure.Search.Service, Version=10.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <HintPath>..\packages\Microsoft.Azure.Search.Service.10.1.0\lib\net461\Microsoft.Azure.Search.Service.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Azure.Storage.Blob, Version=11.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <HintPath>..\packages\Microsoft.Azure.Storage.Blob.11.2.2\lib\net452\Microsoft.Azure.Storage.Blob.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Azure.Storage.Common, Version=11.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <HintPath>..\packages\Microsoft.Azure.Storage.Common.11.2.2\lib\net452\Microsoft.Azure.Storage.Common.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Azure.Storage.Queue, Version=11.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <HintPath>..\packages\Microsoft.Azure.Storage.Queue.11.2.2\lib\net452\Microsoft.Azure.Storage.Queue.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51">
+      <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.1.1.1\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=2.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Data.Edm, Version=5.8.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <HintPath>..\packages\Microsoft.Data.Edm.5.8.4\lib\net40\Microsoft.Data.Edm.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Data.Tools.Schema.Sql, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <HintPath>..\packages\Microsoft.SqlServer.DacFx.150.4573.2\lib\net46\Microsoft.Data.Tools.Schema.Sql.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Data.Tools.Utilities, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <HintPath>..\packages\Microsoft.SqlServer.DacFx.150.4573.2\lib\net46\Microsoft.Data.Tools.Utilities.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Caching.Abstractions, Version=3.1.8.0, Culture=neutral, PublicKeyToken=adb9793829ddae60">
+      <HintPath>..\packages\Microsoft.Extensions.Caching.Abstractions.3.1.8\lib\netstandard2.0\Microsoft.Extensions.Caching.Abstractions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Caching.Memory, Version=3.1.8.0, Culture=neutral, PublicKeyToken=adb9793829ddae60">
+      <HintPath>..\packages\Microsoft.Extensions.Caching.Memory.3.1.8\lib\netstandard2.0\Microsoft.Extensions.Caching.Memory.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Configuration, Version=3.1.8.0, Culture=neutral, PublicKeyToken=adb9793829ddae60">
+      <HintPath>..\packages\Microsoft.Extensions.Configuration.3.1.8\lib\netstandard2.0\Microsoft.Extensions.Configuration.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Configuration.Abstractions, Version=3.1.8.0, Culture=neutral, PublicKeyToken=adb9793829ddae60">
+      <HintPath>..\packages\Microsoft.Extensions.Configuration.Abstractions.3.1.8\lib\netstandard2.0\Microsoft.Extensions.Configuration.Abstractions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Configuration.Binder, Version=3.1.8.0, Culture=neutral, PublicKeyToken=adb9793829ddae60">
+      <HintPath>..\packages\Microsoft.Extensions.Configuration.Binder.3.1.8\lib\netstandard2.0\Microsoft.Extensions.Configuration.Binder.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.DependencyInjection, Version=3.1.8.0, Culture=neutral, PublicKeyToken=adb9793829ddae60">
+      <HintPath>..\packages\Microsoft.Extensions.DependencyInjection.3.1.8\lib\net461\Microsoft.Extensions.DependencyInjection.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.DependencyInjection.Abstractions, Version=3.1.8.0, Culture=neutral, PublicKeyToken=adb9793829ddae60">
+      <HintPath>..\packages\Microsoft.Extensions.DependencyInjection.Abstractions.3.1.8\lib\netstandard2.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.FileProviders.Abstractions, Version=3.1.8.0, Culture=neutral, PublicKeyToken=adb9793829ddae60">
+      <HintPath>..\packages\Microsoft.Extensions.FileProviders.Abstractions.3.1.8\lib\netstandard2.0\Microsoft.Extensions.FileProviders.Abstractions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.FileProviders.Physical, Version=3.1.8.0, Culture=neutral, PublicKeyToken=adb9793829ddae60">
+      <HintPath>..\packages\Microsoft.Extensions.FileProviders.Physical.3.1.8\lib\netstandard2.0\Microsoft.Extensions.FileProviders.Physical.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.FileSystemGlobbing, Version=3.1.8.0, Culture=neutral, PublicKeyToken=adb9793829ddae60">
+      <HintPath>..\packages\Microsoft.Extensions.FileSystemGlobbing.3.1.8\lib\netstandard2.0\Microsoft.Extensions.FileSystemGlobbing.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Identity.Core, Version=3.1.8.0, Culture=neutral, PublicKeyToken=adb9793829ddae60">
+      <HintPath>..\packages\Microsoft.Extensions.Identity.Core.3.1.8\lib\netstandard2.0\Microsoft.Extensions.Identity.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Identity.Stores, Version=3.1.8.0, Culture=neutral, PublicKeyToken=adb9793829ddae60">
+      <HintPath>..\packages\Microsoft.Extensions.Identity.Stores.3.1.8\lib\netstandard2.0\Microsoft.Extensions.Identity.Stores.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Localization, Version=3.1.8.0, Culture=neutral, PublicKeyToken=adb9793829ddae60">
+      <HintPath>..\packages\Microsoft.Extensions.Localization.3.1.8\lib\netstandard2.0\Microsoft.Extensions.Localization.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Localization.Abstractions, Version=3.1.8.0, Culture=neutral, PublicKeyToken=adb9793829ddae60">
+      <HintPath>..\packages\Microsoft.Extensions.Localization.Abstractions.3.1.8\lib\netstandard2.0\Microsoft.Extensions.Localization.Abstractions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Logging, Version=3.1.8.0, Culture=neutral, PublicKeyToken=adb9793829ddae60">
+      <HintPath>..\packages\Microsoft.Extensions.Logging.3.1.8\lib\netstandard2.0\Microsoft.Extensions.Logging.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Logging.Abstractions, Version=3.1.8.0, Culture=neutral, PublicKeyToken=adb9793829ddae60">
+      <HintPath>..\packages\Microsoft.Extensions.Logging.Abstractions.3.1.8\lib\netstandard2.0\Microsoft.Extensions.Logging.Abstractions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Logging.Debug, Version=3.1.8.0, Culture=neutral, PublicKeyToken=adb9793829ddae60">
+      <HintPath>..\packages\Microsoft.Extensions.Logging.Debug.3.1.8\lib\netstandard2.0\Microsoft.Extensions.Logging.Debug.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Options, Version=3.1.8.0, Culture=neutral, PublicKeyToken=adb9793829ddae60">
+      <HintPath>..\packages\Microsoft.Extensions.Options.3.1.8\lib\netstandard2.0\Microsoft.Extensions.Options.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Primitives, Version=3.1.8.0, Culture=neutral, PublicKeyToken=adb9793829ddae60">
+      <HintPath>..\packages\Microsoft.Extensions.Primitives.3.1.8\lib\netstandard2.0\Microsoft.Extensions.Primitives.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.Abstractions, Version=6.35.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <HintPath>..\packages\Microsoft.IdentityModel.Abstractions.6.35.0\lib\net472\Microsoft.IdentityModel.Abstractions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.JsonWebTokens, Version=6.35.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <HintPath>..\packages\Microsoft.IdentityModel.JsonWebTokens.6.35.0\lib\net472\Microsoft.IdentityModel.JsonWebTokens.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.Logging, Version=6.35.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <HintPath>..\packages\Microsoft.IdentityModel.Logging.6.35.0\lib\net472\Microsoft.IdentityModel.Logging.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.Tokens, Version=6.35.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <HintPath>..\packages\Microsoft.IdentityModel.Tokens.6.35.0\lib\net472\Microsoft.IdentityModel.Tokens.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Office.Client.Policy, Version=16.1.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c">
+      <HintPath>..\packages\Microsoft.SharePointOnline.CSOM.16.1.6621.1200\lib\net45\Microsoft.Office.Client.Policy.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Office.Client.TranslationServices, Version=16.1.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c">
+      <HintPath>..\packages\Microsoft.SharePointOnline.CSOM.16.1.6621.1200\lib\net45\Microsoft.Office.Client.TranslationServices.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Office.SharePoint.Tools, Version=16.1.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c">
+      <HintPath>..\packages\Microsoft.SharePointOnline.CSOM.16.1.6621.1200\lib\net45\Microsoft.Office.SharePoint.Tools.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Online.SharePoint.Client.Tenant, Version=16.1.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c">
+      <HintPath>..\packages\Microsoft.SharePointOnline.CSOM.16.1.6621.1200\lib\net45\Microsoft.Online.SharePoint.Client.Tenant.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin, Version=4.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <HintPath>..\packages\Microsoft.Owin.4.2.2\lib\net45\Microsoft.Owin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb, Version=4.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.4.2.2\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security, Version=4.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <HintPath>..\packages\Microsoft.Owin.Security.4.2.2\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies, Version=4.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.4.2.2\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth, Version=4.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.4.2.2\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ProjectServer.Client, Version=16.1.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c">
+      <HintPath>..\packages\Microsoft.SharePointOnline.CSOM.16.1.6621.1200\lib\net45\Microsoft.ProjectServer.Client.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Rest.ClientRuntime, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <HintPath>..\packages\Microsoft.Rest.ClientRuntime.2.3.20\lib\net461\Microsoft.Rest.ClientRuntime.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Rest.ClientRuntime.Azure, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <HintPath>..\packages\Microsoft.Rest.ClientRuntime.Azure.3.3.18\lib\net452\Microsoft.Rest.ClientRuntime.Azure.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.SharePoint.Client, Version=16.1.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c">
+      <HintPath>..\packages\Microsoft.SharePointOnline.CSOM.16.1.6621.1200\lib\net45\Microsoft.SharePoint.Client.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.SharePoint.Client.DocumentManagement, Version=16.1.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c">
+      <HintPath>..\packages\Microsoft.SharePointOnline.CSOM.16.1.6621.1200\lib\net45\Microsoft.SharePoint.Client.DocumentManagement.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.SharePoint.Client.Publishing, Version=16.1.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c">
+      <HintPath>..\packages\Microsoft.SharePointOnline.CSOM.16.1.6621.1200\lib\net45\Microsoft.SharePoint.Client.Publishing.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.SharePoint.Client.Runtime, Version=16.1.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c">
+      <HintPath>..\packages\Microsoft.SharePointOnline.CSOM.16.1.6621.1200\lib\net45\Microsoft.SharePoint.Client.Runtime.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.SharePoint.Client.Runtime.Windows, Version=16.1.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c">
+      <HintPath>..\packages\Microsoft.SharePointOnline.CSOM.16.1.6621.1200\lib\net45\Microsoft.SharePoint.Client.Runtime.Windows.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.SharePoint.Client.Search, Version=16.1.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c">
+      <HintPath>..\packages\Microsoft.SharePointOnline.CSOM.16.1.6621.1200\lib\net45\Microsoft.SharePoint.Client.Search.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.SharePoint.Client.Search.Applications, Version=16.1.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c">
+      <HintPath>..\packages\Microsoft.SharePointOnline.CSOM.16.1.6621.1200\lib\net45\Microsoft.SharePoint.Client.Search.Applications.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.SharePoint.Client.Taxonomy, Version=16.1.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c">
+      <HintPath>..\packages\Microsoft.SharePointOnline.CSOM.16.1.6621.1200\lib\net45\Microsoft.SharePoint.Client.Taxonomy.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.SharePoint.Client.UserProfiles, Version=16.1.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c">
+      <HintPath>..\packages\Microsoft.SharePointOnline.CSOM.16.1.6621.1200\lib\net45\Microsoft.SharePoint.Client.UserProfiles.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.SharePoint.Client.WorkflowServices, Version=16.1.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c">
+      <HintPath>..\packages\Microsoft.SharePointOnline.CSOM.16.1.6621.1200\lib\net45\Microsoft.SharePoint.Client.WorkflowServices.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Spatial, Version=7.5.3.21218, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <HintPath>..\packages\Microsoft.Spatial.7.5.3\lib\portable-net45+win8+wpa81\Microsoft.Spatial.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Dac, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <HintPath>..\packages\Microsoft.SqlServer.DacFx.150.4573.2\lib\net46\Microsoft.SqlServer.Dac.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Dac.Extensions, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <HintPath>..\packages\Microsoft.SqlServer.DacFx.150.4573.2\lib\net46\Microsoft.SqlServer.Dac.Extensions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.TransactSql.ScriptDom, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">
+      <HintPath>..\packages\Microsoft.SqlServer.DacFx.150.4573.2\lib\net46\Microsoft.SqlServer.TransactSql.ScriptDom.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Types, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">
+      <HintPath>..\packages\Microsoft.SqlServer.DacFx.150.4573.2\lib\net46\Microsoft.SqlServer.Types.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Threading.Tasks, Version=1.0.12.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <HintPath>..\packages\Microsoft.Bcl.Async.1.0.168\lib\net40\Microsoft.Threading.Tasks.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Threading.Tasks.Extensions, Version=1.0.12.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <HintPath>..\packages\Microsoft.Bcl.Async.1.0.168\lib\net40\Microsoft.Threading.Tasks.Extensions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Threading.Tasks.Extensions.Desktop, Version=1.0.168.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <HintPath>..\packages\Microsoft.Bcl.Async.1.0.168\lib\net40\Microsoft.Threading.Tasks.Extensions.Desktop.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MimeKit, Version=3.3.0.0, Culture=neutral, PublicKeyToken=bede1c8a46c66814">
+      <HintPath>..\packages\MimeKit.3.3.0\lib\net48\MimeKit.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Mono.Cecil, Version=0.10.0.0, Culture=neutral, PublicKeyToken=50cebf1cceb9d05e">
+      <HintPath>..\packages\Mono.Cecil.0.10.0\lib\net40\Mono.Cecil.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Mono.Cecil.Mdb, Version=0.10.0.0, Culture=neutral, PublicKeyToken=50cebf1cceb9d05e">
+      <HintPath>..\packages\Mono.Cecil.0.10.0\lib\net40\Mono.Cecil.Mdb.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Mono.Cecil.Pdb, Version=0.10.0.0, Culture=neutral, PublicKeyToken=50cebf1cceb9d05e">
+      <HintPath>..\packages\Mono.Cecil.0.10.0\lib\net40\Mono.Cecil.Pdb.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Mono.Cecil.Rocks, Version=0.10.0.0, Culture=neutral, PublicKeyToken=50cebf1cceb9d05e">
+      <HintPath>..\packages\Mono.Cecil.0.10.0\lib\net40\Mono.Cecil.Rocks.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NuGet.Common, Version=5.11.5.1, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <HintPath>..\packages\NuGet.Common.5.11.5\lib\net472\NuGet.Common.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NuGet.Configuration, Version=5.11.5.1, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <HintPath>..\packages\NuGet.Configuration.5.11.5\lib\net472\NuGet.Configuration.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NuGet.Frameworks, Version=5.11.5.1, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <HintPath>..\packages\NuGet.Frameworks.5.11.5\lib\net472\NuGet.Frameworks.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NuGet.Packaging, Version=5.11.5.1, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <HintPath>..\packages\NuGet.Packaging.5.11.5\lib\net472\NuGet.Packaging.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NuGet.Versioning, Version=5.11.5.1, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <HintPath>..\packages\NuGet.Versioning.5.11.5\lib\net472\NuGet.Versioning.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="OpenPop, Version=2.0.6.1120, Culture=neutral, PublicKeyToken=6bdb97f144b7efc8">
+      <HintPath>..\packages\OpenPop.NET.2.0.6.1120\lib\net40\OpenPop.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="PayPal, Version=1.8.0.0, Culture=neutral, PublicKeyToken=5b4afc1ccaef40fb">
+      <HintPath>..\packages\PayPal.1.8.0\lib\net451\PayPal.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="PDFClown, Version=0.1.2.1, Culture=neutral, PublicKeyToken=834b12a258f213f9">
+      <HintPath>..\packages\Kentico.Xperience.Libraries.13.0.142\lib\net48\PDFClown.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="PreMailer.Net, Version=2.2.0.0, Culture=neutral, PublicKeyToken=23e3f43e29cae17f">
+      <HintPath>..\packages\PreMailer.Net.2.2.0\lib\net461\PreMailer.Net.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51">
+      <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Collections.Immutable, Version=7.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <HintPath>..\packages\System.Collections.Immutable.7.0.0\lib\net462\System.Collections.Immutable.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.ComponentModel.Annotations, Version=4.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <HintPath>..\packages\System.ComponentModel.Annotations.4.7.0\lib\net461\System.ComponentModel.Annotations.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data.HashFunction.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=80c9288e394c1322">
+      <HintPath>..\packages\System.Data.HashFunction.Core.2.0.0\lib\net45\System.Data.HashFunction.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data.HashFunction.CRC, Version=2.0.0.0, Culture=neutral, PublicKeyToken=80c9288e394c1322">
+      <HintPath>..\packages\System.Data.HashFunction.CRC.2.0.0\lib\net45\System.Data.HashFunction.CRC.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data.HashFunction.Interfaces, Version=2.0.0.0, Culture=neutral, PublicKeyToken=80c9288e394c1322">
+      <HintPath>..\packages\System.Data.HashFunction.Interfaces.2.0.0\lib\net45\System.Data.HashFunction.Interfaces.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.IdentityModel.Tokens.Jwt, Version=6.35.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <HintPath>..\packages\System.IdentityModel.Tokens.Jwt.6.35.0\lib\net472\System.IdentityModel.Tokens.Jwt.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Memory, Version=4.0.1.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51">
+      <HintPath>..\packages\System.Memory.4.5.5\lib\net461\System.Memory.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Reactive.Core, Version=2.2.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <HintPath>..\packages\Rx-Core.2.2.5\lib\net45\System.Reactive.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Reactive.Interfaces, Version=2.2.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <HintPath>..\packages\Rx-Interfaces.2.2.5\lib\net45\System.Reactive.Interfaces.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Reactive.Linq, Version=2.2.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <HintPath>..\packages\Rx-Linq.2.2.5\lib\net45\System.Reactive.Linq.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Reactive.PlatformServices, Version=2.2.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <HintPath>..\packages\Rx-PlatformServices.2.2.5\lib\net45\System.Reactive.PlatformServices.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.6.0.0\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.Remoting" />
+    <Reference Include="System.ServiceModel.Duplex, Version=4.10.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <HintPath>..\packages\System.ServiceModel.Duplex.4.10.0\lib\net461\System.ServiceModel.Duplex.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.ServiceModel.Http, Version=4.6.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <HintPath>..\packages\System.ServiceModel.Http.4.6.0\lib\net461\System.ServiceModel.Http.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.ServiceModel.NetTcp, Version=4.6.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <HintPath>..\packages\System.ServiceModel.NetTcp.4.6.0\lib\net461\System.ServiceModel.NetTcp.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.ServiceModel.Primitives, Version=4.10.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <HintPath>..\packages\System.ServiceModel.Primitives.4.10.0\lib\net461\System.ServiceModel.Primitives.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.ServiceModel.Security, Version=4.6.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <HintPath>..\packages\System.ServiceModel.Security.4.6.0\lib\net461\System.ServiceModel.Security.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.ServiceModel.Syndication, Version=4.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51">
+      <HintPath>..\packages\System.ServiceModel.Syndication.4.5.0\lib\net461\System.ServiceModel.Syndication.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Text.Encoding.CodePages, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <HintPath>..\packages\System.Text.Encoding.CodePages.6.0.0\lib\net461\System.Text.Encoding.CodePages.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Text.Encodings.Web, Version=4.0.5.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51">
+      <HintPath>..\packages\System.Text.Encodings.Web.4.7.2\lib\net461\System.Text.Encodings.Web.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Text.Json, Version=4.0.1.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51">
+      <HintPath>..\packages\System.Text.Json.4.7.2\lib\net461\System.Text.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51">
+      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.Helpers.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.3\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.7\lib\net45\System.Web.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Optimization, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.7\lib\net45\System.Web.Razor.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Ude.NetStandard, Version=1.0.2.0, Culture=neutral, PublicKeyToken=103cb45fc06c90e4">
+      <HintPath>..\packages\Ude.NetStandard.1.2.0\lib\net45\Ude.NetStandard.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="WebGrease, Version=1.6.5135.21930, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="X.PagedList, Version=8.0.7.0, Culture=neutral, PublicKeyToken=525ccaa9023f010c">
+      <HintPath>..\packages\X.PagedList.8.0.7\lib\netstandard2.0\X.PagedList.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="X.PagedList.Mvc, Version=8.0.7.0, Culture=neutral, PublicKeyToken=525ccaa9023f010c">
+      <HintPath>..\packages\X.PagedList.Mvc.8.0.7\lib\net48\X.PagedList.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="X.PagedList.Web.Common, Version=8.0.7.0, Culture=neutral, PublicKeyToken=525ccaa9023f010c">
+      <HintPath>..\packages\X.PagedList.Web.Common.8.0.7\lib\netstandard2.0\X.PagedList.Web.Common.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\Fonts\Core-icons.svg" />
+    <Content Include="Content\FormComponents\ContactGroupSelectorComponent.admin.css" />
+    <Content Include="Content\FormSections\TwoColumnSection.admin.css" />
+    <Content Include="Content\FormSections\TwoColumnSection.css" />
+    <Content Include="Content\Images\404.jpg" />
+    <Content Include="Content\Images\default-avatar.png" />
+    <Content Include="Content\Images\default-image-cafe.jpg" />
+    <Content Include="Content\Images\empty_cup.jpg" />
+    <Content Include="Content\Images\favicon.png" />
+    <Content Include="Content\Images\icon-magnifier.png" />
+    <Content Include="Content\Images\our-story.jpg" />
+    <Content Include="Content\InlineEditors\DropdownEditor\DropdownEditor.css" />
+    <Content Include="Content\InlineEditors\ImageUploaderEditor\dropzone\dropzone.css" />
+    <Content Include="Content\InlineEditors\ImageUploaderEditor\dropzone\dropzone.js" />
+    <Content Include="Content\InlineEditors\ImageUploaderEditor\image-uploader-editor.js" />
+    <Content Include="Content\InlineEditors\ColorPickerEditor\color-picker-editor.js" />
+    <Content Include="Content\InlineEditors\ColorPickerEditor\ColorPickerEditor.css" />
+    <Content Include="Content\InlineEditors\SpinnerEditor\spinner-editor.js" />
+    <Content Include="Content\InlineEditors\SpinnerEditor\SpinnerEditor.css" />
+    <Content Include="Content\InlineEditors\TextEditor\text-editor.js" />
+    <Content Include="Content\InlineEditors\TextEditor\TextEditor.css" />
+    <Content Include="Content\Styles\Landing-page.css" />
+    <Content Include="Content\Personalization\ConditionTypes\IsInPersona.css" />
+    <Content Include="Content\Styles\Site.css" />
+    <Content Include="DancingGoatMvc\media\CoffeeGallery\Bakery-And-Coffee.jpg" />
+    <Content Include="DancingGoatMvc\media\CoffeeGallery\Brew-Bar.jpg" />
+    <Content Include="DancingGoatMvc\media\CoffeeGallery\Cauca-Farmer.jpg" />
+    <Content Include="DancingGoatMvc\media\CoffeeGallery\Coffee-Cherries.jpg" />
+    <Content Include="DancingGoatMvc\media\CoffeeGallery\Coffee-Region.jpg" />
+    <Content Include="DancingGoatMvc\media\CoffeeGallery\Coffee-Shop.jpg" />
+    <Content Include="DancingGoatMvc\media\CoffeeGallery\Coffee-Triangle.jpg" />
+    <Content Include="DancingGoatMvc\media\CoffeeGallery\Colombia-Coffee.jpg" />
+    <Content Include="DancingGoatMvc\media\CoffeeGallery\Kona-Coffee.jpg" />
+    <Content Include="DancingGoatMvc\media\CoffeeGallery\Robusta.jpg" />
+    <Content Include="DancingGoatMvc\media\CoffeeGallery\St-Helena-Coffee.jpg" />
+    <Content Include="DancingGoatMvc\media\CoffeeGallery\Thailand-Coffee.jpg" />
+    <Content Include="DancingGoatMvc\media\CoffeeGallery\Work-And-Coffee.jpg" />
+    <Content Include="DancingGoatMvc\media\EmailCampaigns\coffee-101-lesson-1.jpg" />
+    <Content Include="DancingGoatMvc\media\EmailCampaigns\coffee-101-lesson-2.jpg" />
+    <Content Include="DancingGoatMvc\media\EmailCampaigns\colombia-coffee-promotion.jpg" />
+    <Content Include="DancingGoatMvc\media\Graphics\banner-default.jpg" />
+    <Content Include="DancingGoatMvc\media\Graphics\colombia-coffee.jpg" />
+    <Content Include="DancingGoatMvc\media\Graphics\default-image-product.png" />
+    <Content Include="DancingGoatMvc\media\Graphics\hero-image.jpg" />
+    <Content Include="DancingGoatMvc\media\Graphics\Logos\logo-dancing-goat-inverted.png" />
+    <Content Include="DancingGoatMvc\media\Graphics\Manufacturers\aerobie.png" />
+    <Content Include="DancingGoatMvc\media\Graphics\Manufacturers\chemex.png" />
+    <Content Include="DancingGoatMvc\media\Graphics\Manufacturers\Espro.png" />
+    <Content Include="DancingGoatMvc\media\Graphics\Manufacturers\Hario.png" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Styles\Products.less" />
+    <Content Include="Content\Styles\Checkout.less" />
+    <Content Include="Content\Styles\Controls.less" />
+    <Content Include="Content\Fonts\Core-icons.woff" />
+    <Content Include="Content\Fonts\Core-icons.eot" />
+    <Content Include="Content\Fonts\Core-icons.ttf" />
+    <Content Include="Content\Styles\icons-core.less" />
+    <Content Include="Content\Styles\variables.less" />
+    <Content Include="Content\Styles\Gallery.less" />
+    <Content Include="Content\Styles\YourAccount.less" />
+    <Content Include="Content\Styles\Landing-page.less" />
+    <Content Include="Content\Styles\Form.less" />
+    <Content Include="Content\Styles\Sections.less" />
+    <Content Include="Content\Styles\Privacy.less" />
+    <Content Include="Content\Styles\TrackingConsent.less" />
+    <Content Include="Content\Styles\Buttons.less" />
+    <None Include="ConnectionStrings.config" />
+    <None Include="Gruntfile.js" />
+    <Content Include="Content\Styles\Menu.less" />
+    <Content Include="Kentico\Content\FormComponents\FileUploader\file-uploader.js" />
+    <Content Include="Kentico\Content\FormComponents\USPhone\inputmask.js" />
+    <Content Include="Kentico\Content\FormComponents\USPhone\inputmask.min.js" />
+    <Content Include="Kentico\Content\InlineEditors\DropdownEditor\dropdown-editor.js" />
+    <Content Include="Kentico\Content\InlineEditors\DropdownEditor\DropdownEditor.css" />
+    <Content Include="Kentico\Content\Selectors\Dialogs\Attachments\attachment-selector.css" />
+    <Content Include="Kentico\Content\Selectors\Dialogs\MediaFiles\media-files-selector.js" />
+    <Content Include="Kentico\Content\Selectors\Dialogs\Pages\page-selector.css" />
+    <Content Include="Kentico\Content\Selectors\Dialogs\PageTemplates\DefaultTemplateImage.png" />
+    <Content Include="Kentico\Content\Selectors\Dialogs\PageTemplates\page-template-selector.js" />
+    <Content Include="Kentico\Content\Selectors\Dialogs\MediaFiles\media-files-selector.css" />
+    <Content Include="Kentico\Content\Selectors\Dialogs\Shared\error-page.css" />
+    <Content Include="Kentico\Content\Selectors\FormComponents\Attachments\attachment-selector.admin.js" />
+    <Content Include="Kentico\Content\Selectors\FormComponents\MediaFiles\media-files-selector.admin.js" />
+    <Content Include="Kentico\Content\Selectors\FormComponents\Pages\page-selector.admin.js" />
+    <Content Include="Kentico\Content\Selectors\FormComponents\Path\path-selector.admin.js" />
+    <Content Include="Kentico\Scripts\forms\updatableFormHelper.js" />
+    <Content Include="Kentico\Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Kentico\Scripts\jquery-3.5.1.js" />
+    <Content Include="Kentico\Scripts\modal-dialog.js" />
+    <Content Include="Kentico\Scripts\shim.min.js" />
+    <Content Include="packages.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Scripts\addressSelector.js" />
+    <Content Include="Scripts\formAutoPost.js" />
+    <Content Include="Scripts\countryStateSelector.js" />
+    <None Include="Scripts\jquery-3.5.1.intellisense.js" />
+    <Content Include="Scripts\jquery-3.5.1.js" />
+    <Content Include="Scripts\jquery-3.5.1.min.js" />
+    <Content Include="Scripts\jquery-3.5.1.slim.js" />
+    <Content Include="Scripts\jquery-3.5.1.slim.min.js" />
+    <Content Include="Scripts\jquery-3.5.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.5.1.min.map" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\map.js" />
+    <Content Include="Scripts\mobileMenu.js" />
+    <Content Include="Scripts\responsiveMenuDropdown.js" />
+    <Content Include="Scripts\variantSelector.js" />
+    <Content Include="Views\Articles\Index.cshtml" />
+    <Content Include="Views\Contacts\Index.cshtml" />
+    <Content Include="Views\About\Index.cshtml" />
+    <Content Include="Views\Company\_Address.cshtml" />
+    <Content Include="Views\Company\_SocialLinks.cshtml" />
+    <Content Include="Views\Cafes\Index.cshtml" />
+    <Content Include="Views\Subscription\Unsubscribe.cshtml" />
+    <Content Include="Views\Search\Index.cshtml" />
+    <Content Include="Views\HttpErrors\NotFound.cshtml" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ActionSelectors\ButtonNameActionAttribute.cs" />
+    <Compile Include="App_Start\ApplicationConfig.cs" />
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\DependencyResolverConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\ApplicationBuilderExtensions.cs" />
+    <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="ComponentIdentifiers.cs" />
+    <Compile Include="ContentItemIdentifiers.cs" />
+    <Compile Include="Controllers\CompanyController.cs" />
+    <Compile Include="Controllers\MediaController.cs" />
+    <Compile Include="Controllers\FormSections\FormSectionExceptionFilterAttribute.cs" />
+    <Compile Include="Controllers\Navigation\NavigationController.cs" />
+    <Compile Include="Controllers\AccessoriesController.cs" />
+    <Compile Include="Controllers\ConsentController.cs" />
+    <Compile Include="Controllers\GrindersController.cs" />
+    <Compile Include="Controllers\ManufacturersController.cs" />
+    <Compile Include="Controllers\PrivacyController.cs" />
+    <Compile Include="Controllers\InlineEditors\ImageUploaderHelper.cs" />
+    <Compile Include="Controllers\InlineEditors\MediaFileImageUploaderController.cs" />
+    <Compile Include="Controllers\StoreController.cs" />
+    <Compile Include="Controllers\Widgets\CafeCardWidgetController.cs" />
+    <Compile Include="Controllers\Widgets\NewsletterSubscriptionWidgetController.cs" />
+    <Compile Include="Controllers\Widgets\ProductCardWidgetController.cs" />
+    <Compile Include="Helpers\ZoneRestrictions.cs" />
+    <Compile Include="Helpers\Generator\ABTestConversionGenerator.cs" />
+    <Compile Include="Helpers\Generator\Campaigns\ActivityDataParameters.cs" />
+    <Compile Include="Helpers\Generator\Campaigns\CampaignContactsDataGenerator.cs" />
+    <Compile Include="Helpers\Generator\Campaigns\CampaignData.cs" />
+    <Compile Include="Helpers\Generator\Campaigns\CampaignDataGenerator.cs" />
+    <Compile Include="Helpers\Generator\Campaigns\CampaignDataGeneratorHelpers.cs" />
+    <Compile Include="Helpers\Generator\Campaigns\CampaignConversionData.cs" />
+    <Compile Include="Helpers\Generator\Campaigns\ContactsIDData.cs" />
+    <Compile Include="Helpers\Generator\DataProtection\FormConsentContactGroupGenerator.cs" />
+    <Compile Include="Helpers\Generator\DataProtection\FormConsentGenerator.cs" />
+    <Compile Include="Helpers\Generator\DataProtection\TrackingConsentGenerator.cs" />
+    <Compile Include="Helpers\Generator\NewslettersDataGenerator.cs" />
+    <Compile Include="Helpers\Generator\OnlineMarketingDataGenerator.cs" />
+    <Compile Include="Helpers\Generator\SentimentAnalysis\SentimentAnalysisApologyEmailGenerator.cs" />
+    <Compile Include="Helpers\Generator\SentimentAnalysis\SentimentAnalysisDataGenerator.cs" />
+    <Compile Include="Helpers\Generator\SentimentAnalysis\SentimentAnalysisMacroRuleGenerator.cs" />
+    <Compile Include="Infrastructure\SetDefaultCultureConstraint.cs" />
+    <Compile Include="Infrastructure\CacheDependencyKeyProvider.cs" />
+    <Compile Include="Models\About\AboutUsSectionViewModel.cs" />
+    <Compile Include="Models\About\AboutUsViewModel.cs" />
+    <Compile Include="Models\Accessories\AccessoryFilterViewModel.cs" />
+    <Compile Include="Models\Accessories\AccessoryProductFilterCheckboxViewModel.cs" />
+    <Compile Include="Models\Accessories\FilterPackViewModel.cs" />
+    <Compile Include="Models\Account\YourAccountViewModel.cs" />
+    <Compile Include="Models\Consent\ConsentViewModel.cs" />
+    <Compile Include="Models\Generated\Pages\FooterNavigation.generated.cs" />
+    <Compile Include="Models\Generated\Pages\HotTips.generated.cs" />
+    <Compile Include="Models\Generated\Pages\Manufacturer.generated.cs" />
+    <Compile Include="Models\Generated\Pages\Products\ElectricGrinder.generated.cs" />
+    <Compile Include="Models\Generated\Pages\Products\FilterPack.generated.cs" />
+    <Compile Include="Models\Generated\Pages\Products\ManualGrinder.generated.cs" />
+    <Compile Include="Models\Generated\Pages\Products\Tableware.generated.cs" />
+    <Compile Include="Models\Generated\Pages\Reference.generated.cs" />
+    <Compile Include="Models\Generator\ButtonViewModel.cs" />
+    <Compile Include="Models\Grinders\ElectricGrinderViewModel.cs" />
+    <Compile Include="Models\Grinders\GrinderFilterCacheKey.cs" />
+    <Compile Include="Models\Grinders\GrinderFilterViewModel.cs" />
+    <Compile Include="Models\Grinders\GrinderFilterWhereCondition.cs" />
+    <Compile Include="Models\Grinders\GrinderPriceRangeEnum.cs" />
+    <Compile Include="Models\Grinders\GrindersProductFilterCheckboxViewModel.cs" />
+    <Compile Include="Models\Manufacturers\ManufactureListItemViewModel.cs" />
+    <Compile Include="Models\Manufacturers\ManufacturerDetailViewModel.cs" />
+    <Compile Include="Models\Navigation\MenuItemModel.cs" />
+    <Compile Include="Models\Navigation\MenuViewModel.cs" />
+    <Compile Include="Models\Privacy\ConsentViewModel.cs" />
+    <Compile Include="Models\Privacy\PrivacyViewModel.cs" />
+    <Compile Include="Models\InlineEditors\ImageUploaderEditor\ImageTypeEnum.cs" />
+    <Compile Include="Models\PageTemplates\ArticleWithSideBar\ArticleSidebarLocationEnum.cs" />
+    <Compile Include="Models\PageTemplates\ArticleWithSideBar\ArticleWithSidebarProperties.cs" />
+    <Compile Include="Models\PageTemplates\ArticleWithSideBar\ArticleWithSidebarViewModel.cs" />
+    <Compile Include="App_Start\PageBuilderComponentRegister.cs" />
+    <Compile Include="CMSRegistrationSource.cs" />
+    <Compile Include="Controllers\AboutController.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AdminRedirectController.cs" />
+    <Compile Include="Controllers\CouponController.cs" />
+    <Compile Include="Controllers\GeneratorController.cs" />
+    <Compile Include="Controllers\FormSections\TwoColumnFormSectionController.cs" />
+    <Compile Include="Controllers\PageTemplates\ArticlePageTemplateController.cs" />
+    <Compile Include="Controllers\PageTemplates\ArticleWithSidebarPageTemplateController.cs" />
+    <Compile Include="Controllers\Personalization\ConditionTypes\IsInPersonaController.cs" />
+    <Compile Include="Controllers\Widgets\ArticlesWidgetController.cs" />
+    <Compile Include="Controllers\BrewersController.cs" />
+    <Compile Include="Controllers\CheckoutController.cs" />
+    <Compile Include="Controllers\CoffeesController.cs" />
+    <Compile Include="Controllers\HttpErrorsController.cs" />
+    <Compile Include="Controllers\OrdersController.cs" />
+    <Compile Include="Controllers\ProductController.cs" />
+    <Compile Include="Controllers\InlineEditors\AttachmentImageUploaderController.cs" />
+    <Compile Include="Controllers\Widgets\HeroImageWidgetController.cs" />
+    <Compile Include="Controllers\Widgets\CardWidgetController.cs" />
+    <Compile Include="Controllers\Widgets\BannerWidgetController.cs" />
+    <Compile Include="Controllers\Widgets\ImageWidgetController.cs" />
+    <Compile Include="Helpers\Generator\ContactGroupGenerator.cs" />
+    <Compile Include="Helpers\Generator\PersonaGenerator.cs" />
+    <Compile Include="Models\PageTemplates\Article\ArticleViewModel.cs" />
+    <Compile Include="Models\PageTemplates\LandingPageSingleColumn\LandingPageSingleColumnProperties.cs" />
+    <Compile Include="Models\PageTemplates\RelatedArticle\RelatedArticleViewModel.cs" />
+    <Compile Include="Models\Sections\ThreeColumnSectionProperties.cs" />
+    <Compile Include="Models\SocialLinks\SocialLinkViewModel.cs" />
+    <Compile Include="Models\Store\StoreViewModel.cs" />
+    <Compile Include="Models\Sections\ThemeSectionProperties.cs" />
+    <Compile Include="Models\References\ReferenceViewModel.cs" />
+    <Compile Include="Models\Widgets\ArticlesWidget\ArticlesCategoryDataProvider.cs" />
+    <Compile Include="Models\Widgets\CafeCardWidget\CafeCardProperties.cs" />
+    <Compile Include="Models\Widgets\CafeCardWidget\CafeCardViewModel.cs" />
+    <Compile Include="Models\Widgets\CTAButton\CTAButtonWidgetProperties.cs" />
+    <Compile Include="Models\Widgets\CTAButton\CTAButtonWidgetViewModel.cs" />
+    <Compile Include="Models\Widgets\ProductCard\ProductCardProperties.cs" />
+    <Compile Include="Models\Widgets\ProductCard\ProductCardViewModel.cs" />
+    <Compile Include="Models\Widgets\NewsletterSubscriptionWidget\NewsletterSubscriptionProperties.cs" />
+    <Compile Include="PageTemplatesFilters\LandingPageTemplatesFilter.cs" />
+    <Compile Include="PageTemplatesFilters\ArticlePageTemplatesFilter.cs" />
+    <Compile Include="Helpers\AreaRestrictionHelper.cs" />
+    <Compile Include="Helpers\Extensions\UserExtensions.cs" />
+    <Compile Include="Infrastructure\RepositoryCacheHelper.cs" />
+    <Compile Include="Infrastructure\ContentItemMetadataProvider.cs" />
+    <Compile Include="Infrastructure\CustomPagedListRenderOptions.cs" />
+    <Compile Include="Infrastructure\ICacheKey.cs" />
+    <Compile Include="Infrastructure\IContentItemMetadataProvider.cs" />
+    <Compile Include="Infrastructure\IOutputCacheDependencies.cs" />
+    <Compile Include="Infrastructure\OutputCacheDependencies.cs" />
+    <Compile Include="Models\FormComponents\ContactGroupSelector\ContactGroupSelectorComponent.cs" />
+    <Compile Include="Models\FormComponents\ContactGroupSelector\ContactGroupSelectorListItem.cs" />
+    <Compile Include="Models\FormComponents\ContactGroupSelector\ContactGroupSelectorProperties.cs" />
+    <Compile Include="Models\Generated\Pages\Contacts.generated.cs" />
+    <Compile Include="Models\Generated\Pages\LandingPage.generated.cs" />
+    <Compile Include="Models\Generator\IndexViewModel.cs" />
+    <Compile Include="Models\InlineEditors\ColorPickerEditor\ColorPickerEditorViewModel.cs" />
+    <Compile Include="Models\InlineEditors\ImageUploaderEditor\PanelPositionEnum.cs" />
+    <Compile Include="Infrastructure\TypedSearchItemViewModelFactory.cs" />
+    <Compile Include="Models\Account\ResetPasswordViewModel.cs" />
+    <Compile Include="Models\Account\RetrievePasswordViewModel.cs" />
+    <Compile Include="Models\Account\PersonalDetailsViewModel.cs" />
+    <Compile Include="Models\Account\RegisterViewModel.cs" />
+    <Compile Include="Models\Account\LoginViewModel.cs" />
+    <Compile Include="Models\Checkout\AddressSelectorViewModel.cs" />
+    <Compile Include="Models\Checkout\BillingAddressViewModel.cs" />
+    <Compile Include="Models\Checkout\CartItemViewModel.cs" />
+    <Compile Include="Models\Checkout\CountryStateViewModel.cs" />
+    <Compile Include="Models\Checkout\CouponCodesUpdateModel.cs" />
+    <Compile Include="Models\Checkout\PaymentMethodViewModel.cs" />
+    <Compile Include="Models\Articles\ArticleViewModel.cs" />
+    <Compile Include="Models\Checkout\PreviewViewModel.cs" />
+    <Compile Include="Models\Checkout\CustomerViewModel.cs" />
+    <Compile Include="Models\Checkout\DeliveryDetailsViewModel.cs" />
+    <Compile Include="Models\Checkout\ShippingOptionViewModel.cs" />
+    <Compile Include="Models\Checkout\ThankYouViewModel.cs" />
+    <Compile Include="Models\Generated\Pages\ArticleSection.generated.cs" />
+    <Compile Include="Models\Generated\Pages\CafeSection.generated.cs" />
+    <Compile Include="Models\Generated\Pages\Home.generated.cs" />
+    <Compile Include="Models\Generated\Pages\HomeSection.generated.cs" />
+    <Compile Include="Models\Generated\Pages\Products\Brewer.generated.cs" />
+    <Compile Include="Models\Generated\Pages\Products\Coffee.generated.cs" />
+    <Compile Include="Models\Home\HomeSectionViewModel.cs" />
+    <Compile Include="Models\InlineEditors\ImageUploaderEditor\ImageUploaderEditorViewModel.cs" />
+    <Compile Include="Models\InlineEditors\InlineEditorViewModel.cs" />
+    <Compile Include="Models\InlineEditors\TextEditor\TextEditorViewModel.cs" />
+    <Compile Include="Models\InlineEditors\SpinnerEditor\SpinnerEditorViewModel.cs" />
+    <Compile Include="Models\MediaGallery\MediaFileViewModel.cs" />
+    <Compile Include="Models\MediaGallery\MediaGalleryViewModel.cs" />
+    <Compile Include="Models\Orders\OrderAddressViewModel.cs" />
+    <Compile Include="Models\Orders\OrderDetailViewModel.cs" />
+    <Compile Include="Models\Orders\OrderItemViewModel.cs" />
+    <Compile Include="Models\Orders\OrdersListViewModel.cs" />
+    <Compile Include="Models\Brewers\BrewerFilterCacheKey.cs" />
+    <Compile Include="Models\Brewers\BrewerFilterViewModel.cs" />
+    <Compile Include="Models\Brewers\BrewerFilterWhereCondition.cs" />
+    <Compile Include="Models\Brewers\BrewerPriceRangesEnum.cs" />
+    <Compile Include="Models\Brewers\BrewerViewModel.cs" />
+    <Compile Include="Models\Coffees\CoffeeViewModel.cs" />
+    <Compile Include="Models\Coffees\CoffeeFilterViewModel.cs" />
+    <Compile Include="Models\Coffees\CoffeeProductFilterCheckboxViewModel.cs" />
+    <Compile Include="Models\Brewers\BrewersProductFilterCheckboxViewModel.cs" />
+    <Compile Include="Models\Personalization\ConditionTypes\IsInPersona\IsInPersonaListItemViewModel.cs" />
+    <Compile Include="Models\Personalization\ConditionTypes\IsInPersona\IsInPersonaViewModel.cs" />
+    <Compile Include="Models\Widgets\TestimonialWidget\TestimonialWidgetProperties.cs" />
+    <Compile Include="Models\Widgets\CardWidget\CardWidgetProperties.cs" />
+    <Compile Include="Models\Widgets\CardWidget\CardWidgetViewModel.cs" />
+    <Compile Include="Models\Widgets\HeroImageWidget\HeroImageWidgetProperties.cs" />
+    <Compile Include="Models\Widgets\HeroImageWidget\HeroImageWidgetViewModel.cs" />
+    <Compile Include="Personalization\ConditionTypes\IsInContactGroupConditionType.cs" />
+    <Compile Include="Personalization\ConditionTypes\IsInPersonaConditionType.cs" />
+    <Compile Include="Models\Products\ITypedProductViewModel.cs" />
+    <Compile Include="Models\Products\ProductListItemViewModel.cs" />
+    <Compile Include="Models\Products\ProductListViewModel.cs" />
+    <Compile Include="Models\Products\ProductOptionCategoryViewModel.cs" />
+    <Compile Include="Models\Products\ProductViewModel.cs" />
+    <Compile Include="Infrastructure\TypedProductViewModelFactory.cs" />
+    <Compile Include="Models\Search\SearchResultItemModel.cs" />
+    <Compile Include="Models\Search\SearchResultPageItemModel.cs" />
+    <Compile Include="Models\Search\SearchResultProductItemModel.cs" />
+    <Compile Include="Models\Search\SearchResultsModel.cs" />
+    <Compile Include="Models\Checkout\CartItemUpdateModel.cs" />
+    <Compile Include="Models\Checkout\CartViewModel.cs" />
+    <Compile Include="Models\Subscription\ConfirmSubscriptionModel.cs" />
+    <Compile Include="Models\Widgets\ArticlesWidget\ArticlesWidgetViewModel.cs" />
+    <Compile Include="Models\Widgets\ArticlesWidget\ArticlesWidgetProperties.cs" />
+    <Compile Include="Models\Widgets\BannerWidget\BannerWidgetProperties.cs" />
+    <Compile Include="Models\Widgets\BannerWidget\BannerWidgetViewModel.cs" />
+    <Compile Include="Models\Widgets\ImageWidget\ImageWidgetProperties.cs" />
+    <Compile Include="Models\Widgets\ImageWidget\ImageWidgetViewModel.cs" />
+    <Compile Include="Properties\WebAssemblyInfo.cs" />
+    <Compile Include="Repositories\Filters\IRepositoryFilter.cs" />
+    <Compile Include="Repositories\IAboutUsRepository.cs" />
+    <Compile Include="Controllers\ArticlesController.cs" />
+    <Compile Include="Controllers\CafesController.cs" />
+    <Compile Include="Controllers\ContactsController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\SearchController.cs" />
+    <Compile Include="Controllers\SubscriptionController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Helpers\Extensions\HtmlHelperExtensions.cs" />
+    <Compile Include="Repositories\IArticleRepository.cs" />
+    <Compile Include="Repositories\IHomeRepository.cs" />
+    <Compile Include="Repositories\IHotTipsRepository.cs" />
+    <Compile Include="Repositories\Implementation\KenticoArticleRepository.cs" />
+    <Compile Include="Repositories\Implementation\KenticoHomeRepository.cs" />
+    <Compile Include="Repositories\Implementation\KenticoHotTipsRepository.cs" />
+    <Compile Include="Repositories\Implementation\KenticoNavigationRepository.cs" />
+    <Compile Include="Repositories\Implementation\KenticoPageRepository.cs" />
+    <Compile Include="Repositories\Implementation\KenticoReferenceRepository.cs" />
+    <Compile Include="Repositories\INavigationRepository.cs" />
+    <Compile Include="Repositories\IBrewerRepository.cs" />
+    <Compile Include="Repositories\ICoffeeRepository.cs" />
+    <Compile Include="Repositories\ICountryRepository.cs" />
+    <Compile Include="Repositories\ICustomerAddressRepository.cs" />
+    <Compile Include="Repositories\IMediaFileRepository.cs" />
+    <Compile Include="Repositories\IManufacturerRepository.cs" />
+    <Compile Include="Repositories\Implementation\KenticoAboutUsRepository.cs" />
+    <Compile Include="Repositories\Implementation\KenticoBrewerRepository.cs" />
+    <Compile Include="Repositories\Implementation\KenticoCafeRepository.cs" />
+    <Compile Include="Repositories\Implementation\KenticoCoffeeRepository.cs" />
+    <Compile Include="Repositories\Implementation\KenticoContactRepository.cs" />
+    <Compile Include="Repositories\Implementation\KenticoCountryRepository.cs" />
+    <Compile Include="Repositories\Implementation\KenticoCustomerAddressRepository.cs" />
+    <Compile Include="Repositories\Implementation\KenticoManufacturerRepository.cs" />
+    <Compile Include="Repositories\Implementation\KenticoMediaFileRepository.cs" />
+    <Compile Include="Repositories\Implementation\KenticoOrderRepository.cs" />
+    <Compile Include="Repositories\Implementation\KenticoPaymentMethodRepository.cs" />
+    <Compile Include="Repositories\Implementation\KenticoProductRepository.cs" />
+    <Compile Include="Repositories\Implementation\KenticoPublicStatusRepository.cs" />
+    <Compile Include="Repositories\Implementation\KenticoShippingOptionRepository.cs" />
+    <Compile Include="Repositories\Implementation\KenticoSocialLinkRepository.cs" />
+    <Compile Include="Repositories\Implementation\KenticoVariantRepository.cs" />
+    <Compile Include="Repositories\Implementation\KenticoPersonaRepository.cs" />
+    <Compile Include="Repositories\IOrderRepository.cs" />
+    <Compile Include="Repositories\IPageRepository.cs" />
+    <Compile Include="Repositories\IPaymentMethodRepository.cs" />
+    <Compile Include="Repositories\IPersonaRepository.cs" />
+    <Compile Include="Repositories\IProductRepository.cs" />
+    <Compile Include="Repositories\IPublicStatusRepository.cs" />
+    <Compile Include="Repositories\IRepository.cs" />
+    <Compile Include="Repositories\IShippingOptionRepository.cs" />
+    <Compile Include="Repositories\IReferenceRepository.cs" />
+    <Compile Include="Repositories\IVariantRepository.cs" />
+    <Compile Include="Repositories\ValueTypes\CountryStateName.cs" />
+    <Compile Include="Models\Cafes\CafeViewModel.cs" />
+    <Compile Include="Models\Cafes\IndexViewModel.cs" />
+    <Compile Include="Models\Contacts\ContactViewModel.cs" />
+    <Compile Include="Models\Contacts\IContact.cs" />
+    <Compile Include="Models\Contacts\IndexViewModel.cs" />
+    <Compile Include="Models\Generated\Pages\AboutUs.generated.cs" />
+    <Compile Include="Models\Generated\Pages\AboutUsSection.generated.cs" />
+    <Compile Include="Models\Generated\Pages\Article.cs" />
+    <Compile Include="Models\Generated\Pages\Article.generated.cs" />
+    <Compile Include="Models\Generated\Pages\Cafe.cs" />
+    <Compile Include="Models\Generated\Pages\Cafe.generated.cs" />
+    <Compile Include="Models\Generated\Pages\Contact.cs" />
+    <Compile Include="Models\Generated\Pages\Contact.generated.cs" />
+    <Compile Include="Models\Generated\Pages\SocialLink.generated.cs" />
+    <Compile Include="Models\Home\IndexViewModel.cs" />
+    <Compile Include="Repositories\ICafeRepository.cs" />
+    <Compile Include="Repositories\IContactRepository.cs" />
+    <Compile Include="Repositories\ISocialLinkRepository.cs" />
+    <Compile Include="Models\Widgets\NewsletterSubscriptionWidget\SubscribeModel.cs" />
+    <Compile Include="Models\Subscription\UnsubscriptionModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\CalculationService.cs" />
+    <Compile Include="Services\CheckoutService.cs" />
+    <Compile Include="Services\ICalculationService.cs" />
+    <Compile Include="Services\ICheckoutService.cs" />
+    <Compile Include="Services\IService.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Content\Styles\Site.less" />
+    <None Include="package.json" />
+    <Content Include="Content\Styles\Grid.less" />
+    <Content Include="Content\Styles\Fonts.less" />
+    <Content Include="Content\Fonts\PTSerif-Bold.woff" />
+    <Content Include="Content\Fonts\SourceSansPro-Bold.woff" />
+    <Content Include="Content\Fonts\SourceSansPro-Light.woff" />
+    <Content Include="Content\Fonts\SourceSansPro-Regular.woff" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Checkout\ShoppingCart.cshtml" />
+    <Content Include="Views\Checkout\DeliveryDetails.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Account\YourAccount.cshtml" />
+    <Content Include="Views\Checkout\EditorTemplates\CountryStateViewModel.cshtml" />
+    <Content Include="Views\Checkout\PreviewAndPay.cshtml" />
+    <Content Include="Views\Checkout\DisplayTemplates\BillingAddressViewModel.cshtml" />
+    <Content Include="Views\Checkout\DisplayTemplates\CustomerViewModel.cshtml" />
+    <Content Include="Views\Checkout\_ShoppingCartContentEdit.cshtml" />
+    <Content Include="Views\Checkout\_ShoppingCartTotals.cshtml" />
+    <Content Include="Views\Checkout\EditorTemplates\BillingAddressViewModel.cshtml" />
+    <Content Include="Views\Checkout\EditorTemplates\CustomerViewModel.cshtml" />
+    <Content Include="Views\Checkout\_ShoppingCartContentPreview.cshtml" />
+    <Content Include="Views\Checkout\ThankYou.cshtml" />
+    <Content Include="Views\Checkout\EditorTemplates\ShippingOptionViewModel.cshtml" />
+    <Content Include="Views\Checkout\EditorTemplates\PaymentMethodViewModel.cshtml" />
+    <Content Include="Views\Checkout\EditorTemplates\AddressSelectorViewModel.cshtml" />
+    <Content Include="Views\Subscription\ConfirmSubscription.cshtml" />
+    <Content Include="Views\Product\Detail.cshtml" />
+    <Content Include="Views\Shared\_StoreLayout.cshtml" />
+    <Content Include="Views\Coffees\Index.cshtml" />
+    <Content Include="Views\Brewers\Index.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\ProductListItem.cshtml" />
+    <Content Include="Views\Product\_VariantSelector.cshtml" />
+    <Content Include="Views\Product\DisplayTemplates\BrewerViewModel.cshtml" />
+    <Content Include="Views\Product\DisplayTemplates\CoffeeViewModel.cshtml" />
+    <Content Include="Views\Search\DisplayTemplates\SearchResultPageItemModel.cshtml" />
+    <Content Include="Views\Search\DisplayTemplates\SearchResultProductItemModel.cshtml" />
+    <Content Include="Views\Media\_Gallery.cshtml" />
+    <Content Include="Views\Coffees\CoffeeFilter.cshtml" />
+    <Content Include="Views\Coffees\CoffeeList.cshtml" />
+    <Content Include="Views\Product\EditorTemplates\ProductOptionCategoryViewModel.cshtml" />
+    <Content Include="Views\Brewers\BrewersFilter.cshtml" />
+    <Content Include="Views\Brewers\BrewersList.cshtml" />
+    <Content Include="Views\Orders\Index.cshtml" />
+    <Content Include="Views\Orders\OrderDetail.cshtml" />
+    <Content Include="Views\Orders\DisplayTemplates\OrderAddressViewModel.cshtml" />
+    <Content Include="Views\Product\_PriceDetails.cshtml" />
+    <Content Include="Views\Account\Edit.cshtml" />
+    <Content Include="Views\Account\_RetrievePassword.cshtml" />
+    <Content Include="Views\Account\ResetPassword.cshtml" />
+    <Content Include="Views\Account\ResetPasswordSucceeded.cshtml" />
+    <Content Include="Views\Account\ResetPasswordInvalidToken.cshtml" />
+    <Content Include="Views\Shared\_GoogleMaps.cshtml" />
+    <Content Include="Views\Brewers\EditorTemplates\BrewersProductFilter.cshtml" />
+    <Content Include="Views\Coffees\EditorTemplates\CoffeeProductFilter.cshtml" />
+    <Content Include="Views\Coupon\_CouponCodeEdit.cshtml" />
+    <Content Include="Views\Shared\Widgets\_ArticlesWidget.cshtml" />
+    <Content Include="Views\Shared\InlineEditors\_SpinnerEditor.cshtml" />
+    <Content Include="Views\Shared\Widgets\_ImageWidget.cshtml" />
+    <Content Include="Views\Shared\InlineEditors\_TextEditor.cshtml" />
+    <Content Include="Views\Shared\InlineEditors\_ImageUploaderEditor.cshtml" />
+    <Content Include="Views\Shared\Widgets\_BannerWidget.cshtml" />
+    <Content Include="Views\Shared\Sections\_DancingGoat_SingleColumnSection.cshtml" />
+    <Content Include="Views\Shared\Sections\_DancingGoat_TwoColumnSection.cshtml" />
+    <Content Include="Views\Shared\Personalization\ConditionTypes\_IsInPersonaConfiguration.cshtml" />
+    <Content Include="Views\Shared\Sections\_DancingGoat_ThreeColumnSection.cshtml" />
+    <Content Include="Views\Shared\Widgets\_DancingGoat_LandingPage_TestimonialWidget.cshtml" />
+    <Content Include="Views\Shared\Widgets\_CardWidget.cshtml" />
+    <Content Include="Views\Shared\InlineEditors\_ColorPickerEditor.cshtml" />
+    <Content Include="Views\Shared\Widgets\_HeroImageWidget.cshtml" />
+    <Content Include="Views\Generator\Index.cshtml" />
+    <Content Include="Views\Shared\FormComponents\_ContactGroupSelector.cshtml" />
+    <Content Include="Views\Shared\FormSections\_TwoColumnSection.cshtml" />
+    <Content Include="Views\Shared\PageTemplates\_DancingGoat_LandingPageSingleColumn.cshtml" />
+    <Content Include="Views\Shared\_LandingPageLayout.cshtml" />
+    <Content Include="Views\Shared\PageTemplates\_ArticleWithSidebar.cshtml" />
+    <Content Include="Views\Shared\PageTemplates\_Article.cshtml" />
+    <Content Include="Views\Shared\PageTemplates\_RelatedArticles.cshtml" />
+    <Content Include="Views\Shared\Widgets\_ProductCardWidget.cshtml" />
+    <Content Include="Views\Shared\Widgets\_CafeCardWidget.cshtml" />
+    <Content Include="Views\Generator\_Button.cshtml" />
+    <Content Include="Views\Shared\_TrackingConsent.cshtml" />
+    <Content Include="Views\Privacy\Index.cshtml" />
+    <Content Include="Views\Accessories\AccessoriesFilter.cshtml" />
+    <Content Include="Views\Accessories\AccessoriesList.cshtml" />
+    <Content Include="Views\Accessories\EditorTemplates\AccessoriesProductFilter.cshtml" />
+    <Content Include="Views\Accessories\Index.cshtml" />
+    <Content Include="Views\Grinders\EditorTemplates\GrindersProductFilter.cshtml" />
+    <Content Include="Views\Grinders\GrindersFilter.cshtml" />
+    <Content Include="Views\Grinders\GrindersList.cshtml" />
+    <Content Include="Views\Grinders\Index.cshtml" />
+    <Content Include="Views\Store\Index.cshtml" />
+    <Content Include="Views\Shared\_StoreProductList.cshtml" />
+    <Content Include="Views\Manufacturers\Index.cshtml" />
+    <Content Include="Views\Shared\_ManufacturerList.cshtml" />
+    <Content Include="Views\Manufacturers\Detail.cshtml" />
+    <Content Include="Views\Shared\Navigation\_Menu.cshtml" />
+    <Content Include="Views\Shared\Navigation\_Footer.cshtml" />
+    <Content Include="Views\Shared\_Reference.cshtml" />
+    <Content Include="Views\Shared\Widgets\NewsletterSubscriptionWidget\_Subscribe.cshtml" />
+    <Content Include="Views\Shared\Widgets\NewsletterSubscriptionWidget\_SubscribeAuthenticated.cshtml" />
+    <Content Include="Views\Product\DisplayTemplates\ElectricGrinderViewModel.cshtml" />
+    <Content Include="Views\Product\DisplayTemplates\FilterPackViewModel.cshtml" />
+    <Content Include="Views\Shared\Widgets\_DancingGoat_General_CTAButtonWidget.cshtml" />
+    <Content Include="Views\Account\RequireConfirmedAccount.cshtml" />
+    <Content Include="Views\Shared\Sections\_DancingGoat_Section_25_75.cshtml" />
+    <Content Include="Views\Shared\Sections\_DancingGoat_Section_75_25.cshtml" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="App_Data\DancingGoatMVC\Resources\DancingGoatMvc.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_Data\DancingGoatMVC\Resources\es-ES\DancingGoatMvc.es-ES.resx">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Data\Global\Resources\DancingGoatMVC.Components.resx">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Kentico\Scripts\builders\components\components.esm.js" />
+    <Content Include="Kentico\Scripts\builders\components\index-487129cb.js" />
+    <Content Include="Kentico\Scripts\builders\components\index.esm.js" />
+    <Content Include="Kentico\Scripts\builders\components\kentico-abtest-variant-listing_44.entry.js" />
+    <Content Include="Kentico\Scripts\builders\builder.css" />
+    <Content Include="Kentico\Scripts\builders\builder.js" />
+    <Content Include="Kentico\Scripts\builders\Core-icons.eot" />
+    <Content Include="Kentico\Scripts\builders\Core-icons.svg" />
+    <Content Include="Kentico\Scripts\builders\Core-icons.ttf" />
+    <Content Include="Kentico\Scripts\builders\Core-icons.woff" />
+    <Content Include="Kentico\Scripts\builders\form-builder.css" />
+    <Content Include="Kentico\Scripts\builders\form-builder.js" />
+    <Content Include="Kentico\Scripts\builders\page-builder.css" />
+    <Content Include="Kentico\Scripts\builders\page-builder.js" />
+    <Content Include="Kentico\Scripts\builders\page-template-selector.css" />
+    <Content Include="Kentico\Scripts\builders\vendors.js" />
+    <Content Include="Kentico\Scripts\builders\vendors.js.LICENSE.txt" />
+    <Content Include="Kentico\Scripts\builders\web-components.css" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+  </PropertyGroup>
+  <Import Project="..\packages\Kentico.Xperience.AspNet.Mvc5.13.0.142\build\Kentico.Xperience.AspNet.Mvc5.targets" Condition="Exists('..\packages\Kentico.Xperience.AspNet.Mvc5.13.0.142\build\Kentico.Xperience.AspNet.Mvc5.targets')" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>0</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:62279/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

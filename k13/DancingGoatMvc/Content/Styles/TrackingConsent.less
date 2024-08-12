@@ -1,0 +1,31 @@
+﻿@import (reference) "./variables.less";
+
+.cookie-consent {
+    font-size: @base-unit;
+    padding: 8px;
+    background: #1d1d1d;
+    color: #fff;
+
+    .consent-text {
+        padding-bottom: 16px;
+    }
+
+    .consent-buttons {
+        text-align: right;
+        margin: 0;
+
+        @import "./Buttons.less";
+            
+        .btn-consent {
+            width: auto;
+            margin-top: .5rem;
+            line-height: 8px;
+            text-transform: uppercase;
+            background: #08768c;
+            color: #fff;
+            margin-right: 12px;
+            margin-bottom: 0;
+            font-weight: normal;
+        }
+    }
+}

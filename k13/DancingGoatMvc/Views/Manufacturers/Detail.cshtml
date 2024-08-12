@@ -1,0 +1,11 @@
+﻿@using DancingGoat.Models.Manufacturers
+@model ManufacturerDetailViewModel
+@{
+    Layout = "~/Views/Shared/_StoreLayout.cshtml";
+
+    var heading = ResHelper.GetString("DancingGoatMvc.Manufacturers.Heading");
+}
+<h2 class="breadcrumbs">@Html.HtmlLink(Url.Kentico().PageUrl(ContentItemIdentifiers.MANUFACTURERS), heading)<span class="arrow">&gt;</span> @Model.Name </h2>
+
+@{Html.RenderPartial("_StoreProductList", Model.Products);}
+

@@ -1,0 +1,20 @@
+﻿@model DancingGoat.Models.Widgets.SubscribeModel
+
+@{
+    var id = Guid.NewGuid().ToString();
+}
+
+@using (Ajax.BeginForm("Subscribe", "NewsletterSubscriptionWidget", null, new AjaxOptions
+{
+    HttpMethod = "POST",
+    InsertionMode = InsertionMode.Replace,
+    UpdateTargetId = id
+}, new { id = id }))
+{
+    @Html.Kentico().AntiForgeryToken();
+    @Html.Kentico().ComponentPropertiesData()
+
+    @Html.ValidatedEditorFor(m => m.Email)
+
+    <input id="btnSubscribe" type="submit" value="@ResHelper.GetString("DancingGoatMvc.News.Subscribe")" class="btn btn-primary" />
+}

@@ -1,0 +1,49 @@
+﻿@using DancingGoat.Models.InlineEditors
+@using DancingGoat.Models.Widgets
+
+@model Kentico.PageBuilder.Web.Mvc.ComponentViewModel<TestimonialWidgetProperties>
+
+@{ 
+    var editMode = Context.Kentico().PageBuilder().EditMode;
+}
+
+<div class="testimonial-body @Model.Properties.ColorCssClass">
+    @if (editMode)
+    {
+        Html.RenderPartial("InlineEditors/_ColorPickerEditor", new ColorPickerEditorViewModel
+        {
+            PropertyName = nameof(TestimonialWidgetProperties.ColorCssClass),
+            ColorCssClass = Model.Properties.ColorCssClass
+        });
+    }
+    <p>
+        @if (editMode)
+        {
+            Html.RenderPartial("InlineEditors/_TextEditor", new TextEditorViewModel
+            {
+                PropertyName = nameof(TestimonialWidgetProperties.QuotationText),
+                Text = Model.Properties.QuotationText,
+            });
+        }
+        else
+        {
+            @Model.Properties.QuotationText
+        }
+    </p>
+    <div class="author">
+        <p>
+            @if (editMode)
+            {
+                Html.RenderPartial("InlineEditors/_TextEditor", new TextEditorViewModel
+                {
+                    PropertyName = nameof(TestimonialWidgetProperties.AuthorText),
+                    Text = Model.Properties.AuthorText,
+                });
+            }
+            else
+            {
+                @Model.Properties.AuthorText
+            }
+        </p>
+    </div>
+</div>

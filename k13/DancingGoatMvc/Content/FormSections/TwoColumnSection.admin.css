@@ -1,0 +1,10 @@
+﻿.ktc-form-builder-form .two-column-section {
+    display: inline-block;
+    width: 100%;
+    margin-bottom: -4px;
+}
+
+.ktc-form-builder-form .two-column-section .section-col-50 {
+    float: left;
+    width: 50%
+}

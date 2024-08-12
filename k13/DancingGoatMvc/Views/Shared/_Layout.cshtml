@@ -1,0 +1,191 @@
+﻿
+@using Kentico.Membership.Web.Mvc
+@using Kentico.Content.Web.Mvc
+@using DancingGoat.Models.Widgets
+
+<!DOCTYPE html>
+
+<html>
+<head id="head">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="UTF-8" />
+    @Html.Kentico().PageDescription()
+    @Html.Kentico().PageKeywords()
+    @Html.Kentico().PageTitle(ViewBag.Title as string)
+    <link rel="icon" href="~/content/images/favicon.png" type="image/png" />
+    <link href="~/Content/Styles/Site.css" rel="stylesheet" type="text/css" />
+    <link rel="canonical" href="@Url.Kentico().PageCanonicalUrl()" />
+    @RenderSection("styles", required: false)
+    @Html.Kentico().ABTestLoggerScript()
+    @Html.Kentico().ActivityLoggingScript()
+    @Html.Kentico().WebAnalyticsLoggingScript()
+</head>
+<body>
+    <div class="page-wrap">
+        @Html.Action("Index", "Consent")
+        <header class="header" data-ktc-search-exclude>
+            <div class="menu">
+                <div class="container">
+                    @Html.Action("Menu", "Navigation")
+                    <div class="menu-separator"></div>
+                    <div class="additional-menu-buttons user-menu">
+                        <div class="dropdown-header menu-hover">
+                            <div class="dropdown-icon-tablet">
+                                <i aria-hidden="true" id="user-menu-icon" class="icon-user"></i>
+                            </div>
+                            @if (User.Identity.IsAuthenticated)
+                            {
+                                <div class="dropdown-desktop">
+                                    <img src="@Url.Kentico().AvatarUrl(User.Identity.Name, pathToDefaultAvatar: "~/Content/Images/default-avatar.png")" class="dropdown-desktop-avatar" alt="avatar" />
+                                    @ResHelper.GetStringFormat("DancingGoatMvc.Hello", User.Identity.Name)
+                                    <i aria-hidden="true" class="icon-chevron-down dropdown-arrow"></i>
+                                </div>
+                            }
+                            <span id="user-dropdown-caption-opened" class="sr-only">@ResHelper.GetString("DancingGoatMvc.CloseMenu")</span>
+                            <span id="user-dropdown-caption-closed" class="sr-only">@ResHelper.GetString("DancingGoatMvc.OpenMenu")</span>
+                        </div>
+                        <nav>
+                            @if (User.Identity.IsAuthenticated)
+                            {
+                                <ul class="dropdown-items-list">
+                                    <li>
+                                        @Html.ActionLink(@ResHelper.GetString("DancingGoatMvc.YourAccount"), "YourAccount", "Account")
+                                    </li>
+                                    <li>
+                                        @using (Html.BeginForm("Logout", "Account"))
+                                        {
+                                            @Html.Kentico().AntiForgeryToken()
+                                            <input type="submit" value="@ResHelper.GetString("DancingGoatMvc.SignOut")" class="sign-out-button" />
+                                        }
+                                    </li>
+                                </ul>
+                            }
+                            else
+                            {
+                                <ul class="dropdown-items-list dropdown-desktop-visible">
+                                    <li>
+                                        @Html.ActionLink(ResHelper.GetString("DancingGoatMvc.Register"), "Register", "Account")
+                                    </li>
+                                    <li>
+                                        @Html.ActionLink(ResHelper.GetString("DancingGoatMvc.SignIn"), "Login", "Account")
+                                    </li>
+                                </ul>
+                            }
+                        </nav>
+                    </div>
+                    <div class="menu-separator"></div>
+                    @if (Response.StatusCode == (int)HttpStatusCode.OK)
+                    {
+                        <div class="additional-menu-buttons languages">
+                            <div class="dropdown-header menu-hover dropdown-header-mobile">
+                                <div class="dropdown-icon-tablet">
+                                    <i aria-hidden="true" id="language-selection-icon" class="icon-earth"></i>
+                                </div>
+                                <div class="dropdown-desktop dropdown-mobile">
+                                    @ResHelper.GetString("DancingGoatMvc.Culture." + System.Threading.Thread.CurrentThread.CurrentCulture.Name)
+                                    <i aria-hidden="true" id="language-select-btn" class="icon-chevron-down dropdown-arrow">  </i>
+                                </div>
+                                <span id="language-select-caption-opened" class="sr-only">@ResHelper.GetString("DancingGoatMvc.CloseSelector")</span>
+                                <span id="language-select-caption-closed" class="sr-only">@ResHelper.GetString("DancingGoatMvc.OpenSelector")</span>
+                            </div>
+                            <nav>
+                                <ul class="dropdown-items-list dropdown-items-list-mobile">
+                                    <li>
+                                        @Html.CultureLink(ResHelper.GetString("DancingGoatMvc.Culture.en-us"), "en-US")
+                                    </li>
+                                    <li>
+                                        @Html.CultureLink(ResHelper.GetString("DancingGoatMvc.Culture.es-es"), "es-ES")
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                    }
+                </div>
+            </div>
+            <div class="header-row">
+                <div class="container">
+                    <div class="col-xs-2 md-hidden lg-hidden">
+                        <button type="button" id="mobile-menu-btn">
+                            <i aria-hidden="true" id="mobile-menu-icon" class="icon-menu"></i>
+                            <span id="mobile-menu-caption" class="sr-only">@ResHelper.GetString("DancingGoatMvc.OpenMenu")</span>
+                        </button>
+                    </div>
+                    <div class="col-xs-8 col-md-12 col-lg-4 logo">
+                        <h1 class="logo">
+                            @Html.HtmlLink(Url.Kentico().PageUrl(ContentItemIdentifiers.HOME), "Dancing Goat", new { @class = "logo-link" })
+                        </h1>
+
+                    </div>
+                    <div class="col-xs-2 md-hidden lg-hidden cart-preview-mini">
+                        <a href="@Url.Action("ShoppingCart", "Checkout")" class="shopping-cart">
+                            <i aria-hidden="true" class="icon-shopping-cart"></i>
+                            <span class="sr-only">@ResHelper.GetString("DancingGoatMvc.ShoppingCart")</span>
+                        </a>
+                    </div>
+                    <div class="col-xs-12 col-md-7 col-lg-4">
+                        @using (Html.BeginForm("Index", "Search", FormMethod.Get, new { @Id = "searchForm", @Class = "searchBox" }))
+                        {
+                            <input type="text" id="searchtext" name="searchtext" placeholder="@ResHelper.GetString("DancingGoatMvc.Search")" maxlength="1000" class="search-box-watermark" autocomplete="off">
+                            <input type="submit" value="" class="search-box-btn">
+                        }
+                    </div>
+                    <div class="col-md-5 col-lg-4 xs-hidden sm-hidden">
+                        <div class="shopping-cart-mini-preview">
+                            <a href="@Url.Action("ShoppingCart", "Checkout")">
+                                <div class="shopping-cart-mini-preview-label">
+                                    @ResHelper.GetString("DancingGoatMvc.YourCart")
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <div class="container">
+            @RenderBody()
+        </div>
+    </div>
+    <div class="footer-wrapper">
+        <footer data-ktc-search-exclude>
+            <div class="footer-container">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-4 col-lg-3 footer-col">
+                            <h3 class="contact-title">@ResHelper.GetString("DancingGoatMvc.Contact.Title")</h3>
+                            <p>
+                                @Html.Action("CompanyAddress", "Company")
+                            </p>
+                        </div>
+                        <div class="col-md-4 col-lg-6 footer-col">
+                            <div class="col-md-12 col-lg-6 footer-zone-follow-us">
+                                <h3>@ResHelper.GetString("DancingGoatMvc.FollowUs.Title")</h3>
+                                @Html.Action("CompanySocialLinks", "Company")
+                            </div>
+
+                            <div class="col-md-12 col-lg-6">
+                                @Html.Action("Footer", "Navigation")
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-lg-3 footer-col">
+                            <h3>@ResHelper.GetString("DancingGoatMvc.News.Title")</h3>
+                            @Html.Kentico().RenderStandaloneWidget(DancingGoat.Controllers.Widgets.NewsletterSubscriptionWidgetController.IDENTIFIER, new NewsletterSubscriptionProperties())
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container copyright">
+                Copyright &copy; @DateTime.Now.Year Dancing Goat. All rights reserved.
+            </div>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jquery-unobtrusive-ajax")
+    @Scripts.Render("~/bundles/jquery-validation")
+    @Scripts.Render("~/Scripts/responsiveMenuDropdown.js")
+    @Scripts.Render("~/Scripts/mobileMenu.js")
+
+    @RenderSection("scripts", required: false)
+
+</body>
+</html>
