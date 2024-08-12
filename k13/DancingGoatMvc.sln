@@ -1,10 +1,14 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.27130.2027
+# Visual Studio Version 17
+VisualStudioVersion = 17.10.35027.167
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DancingGoatMvc", "DancingGoatMvc/DancingGoat.csproj", "{812074DB-E3B1-48B5-89CD-C9BC50B809C1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DancingGoat", "DancingGoatMvc\DancingGoat.csproj", "{812074DB-E3B1-48B5-89CD-C9BC50B809C1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DancingGoatMvc.Tests", "DancingGoatMvc.Tests/DancingGoat.Tests.csproj", "{F77742F9-2FE0-4E67-8A96-EF1C7E052934}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DancingGoat.Tests", "DancingGoatMvc.Tests\DancingGoat.Tests.csproj", "{F77742F9-2FE0-4E67-8A96-EF1C7E052934}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ManagedIdentity", "ManagedIdentity\ManagedIdentity.csproj", "{1710B21E-12EE-41FD-9C2D-92F3176E784B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataEngine", "DataEngine\DataEngine.csproj", "{3767E96E-C02E-499D-8012-D271C3D21D9A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -12,14 +16,22 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{812074db-e3b1-48b5-89cd-c9bc50b809c1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{812074db-e3b1-48b5-89cd-c9bc50b809c1}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{812074db-e3b1-48b5-89cd-c9bc50b809c1}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{812074db-e3b1-48b5-89cd-c9bc50b809c1}.Release|Any CPU.Build.0 = Release|Any CPU
-		{f77742f9-2fe0-4e67-8a96-ef1c7e052934}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{f77742f9-2fe0-4e67-8a96-ef1c7e052934}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{f77742f9-2fe0-4e67-8a96-ef1c7e052934}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{f77742f9-2fe0-4e67-8a96-ef1c7e052934}.Release|Any CPU.Build.0 = Release|Any CPU
+		{812074DB-E3B1-48B5-89CD-C9BC50B809C1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{812074DB-E3B1-48B5-89CD-C9BC50B809C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{812074DB-E3B1-48B5-89CD-C9BC50B809C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{812074DB-E3B1-48B5-89CD-C9BC50B809C1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F77742F9-2FE0-4E67-8A96-EF1C7E052934}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F77742F9-2FE0-4E67-8A96-EF1C7E052934}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F77742F9-2FE0-4E67-8A96-EF1C7E052934}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F77742F9-2FE0-4E67-8A96-EF1C7E052934}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1710B21E-12EE-41FD-9C2D-92F3176E784B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1710B21E-12EE-41FD-9C2D-92F3176E784B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1710B21E-12EE-41FD-9C2D-92F3176E784B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1710B21E-12EE-41FD-9C2D-92F3176E784B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3767E96E-C02E-499D-8012-D271C3D21D9A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3767E96E-C02E-499D-8012-D271C3D21D9A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3767E96E-C02E-499D-8012-D271C3D21D9A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3767E96E-C02E-499D-8012-D271C3D21D9A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
